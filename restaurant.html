@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iiko для ресторана — Софт Трейд</title>
+<meta name="description" content="Что входит в iiko для ресторана: касса и зал, кухня, склад, лояльность, доставка, госсистемы. Внедрение и сопровождение — Софт Трейд.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FFFFFF;--ink:#191C1E;--ink-soft:#5A6167;--line:#E4E1DB;--signal:#E05643;--signal-dark:#C44534;--receipt:#FBFAF6}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16.5px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Unbounded',sans-serif;line-height:1.2;font-weight:600}
+header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo-name{font-family:'Unbounded',sans-serif;font-weight:600;font-size:16px}
+.back{font-size:15px;font-weight:600;color:var(--signal);text-decoration:none;white-space:nowrap}
+.back:hover{text-decoration:underline}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:6px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn-primary{background:var(--signal);color:#fff}
+.btn-primary:hover{background:var(--signal-dark)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+
+.hero{background:#F5F7FA;border-bottom:1px solid var(--line);padding:72px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(26px,3.4vw,40px);letter-spacing:-0.01em;margin-bottom:18px}
+.hero h1 .accent{color:var(--signal)}
+.hero p{font-size:18px;color:var(--ink-soft);margin-bottom:30px;max-width:520px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.price-check{background:var(--receipt);border:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:14px;padding:30px 28px 44px;position:relative;box-shadow:0 12px 30px rgba(25,28,30,.08);transform:rotate(1deg);max-width:360px;justify-self:end}
+.price-check:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:14px;background:linear-gradient(-45deg,transparent 7px,var(--receipt) 0) 0 100%/16px 14px repeat-x,linear-gradient(45deg,transparent 7px,var(--receipt) 0) 0 100%/16px 14px repeat-x}
+.price-check .head{text-align:center;font-weight:700;letter-spacing:.06em;font-size:15px}
+.price-check .div{border-top:1px dashed #C9C4B8;margin:12px 0}
+.price-check .row{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+.price-check .total{font-size:20px;font-weight:700}
+.price-check .per{font-size:12px;color:var(--ink-soft)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.price-check{justify-self:start;transform:none}}
+
+section{padding:72px 0}
+.section-title{font-size:clamp(24px,3vw,34px);margin-bottom:14px;letter-spacing:-0.01em}
+.section-lead{color:var(--ink-soft);max-width:680px;margin-bottom:44px;font-size:17.5px}
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mod{border:1px solid var(--line);border-radius:10px;padding:28px 26px;background:#fff}
+.mod .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:var(--signal);letter-spacing:.05em;margin-bottom:10px;text-transform:uppercase}
+.mod h3{font-size:19px;margin-bottom:14px}
+.mod ul{list-style:none}
+.mod li{font-size:15px;color:var(--ink-soft);padding:4px 0 4px 18px;position:relative;line-height:1.5}
+.mod li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--signal)}
+.mod .extra{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--ink-soft)}
+.mod .extra b{color:var(--ink);font-weight:700}
+@media(max-width:800px){.mod-grid{grid-template-columns:1fr}}
+
+.cta{background:#FFF4F0;padding:64px 0}
+.cta .inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cta h2{font-size:clamp(22px,2.8vw,30px);max-width:560px}
+.cta p{color:#4E4E4E;margin-top:8px;max-width:560px}
+footer{padding:26px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
+.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--ink-soft)}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <span class="logo-name">Софт Трейд</span>
+    <a class="back" href="softtrade-horeca-landing.html">← Вернуться на сайт</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>iiko для <span class="accent">ресторана</span></h1>
+      <p>Одна система закрывает всё: зал и кассу, кухню, склад, персонал, доставку, лояльность гостей и отчётность для государства. Ниже — что именно входит и сколько это стоит.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="softtrade-horeca-landing.html#contact">Оставить заявку</a>
+        <a class="btn btn-ghost" href="tel:+73833830110">+7 (383) 383-01-10</a>
+      </div>
+    </div>
+    <div class="price-check" role="img" aria-label="Тариф iiko для ресторана">
+      <div class="head">ТАРИФ «РЕСТОРАН»</div>
+      <div class="div"></div>
+      <div class="row"><span>Уровень</span><span>Профессиональный</span></div>
+      <div class="row"><span>Расчёт</span><span>за кассу</span></div>
+      <div class="div"></div>
+      <div class="row total"><span>ИТОГО</span><span>от 8 600 ₽</span></div>
+      <div class="per">в месяц</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Из чего состоит iiko для ресторана</h2>
+    <p class="section-lead">Восемь направлений работы заведения в одной системе. Всё перечисленное уже входит в тариф — отдельно отмечены только платные расширения.</p>
+    <div class="mod-grid">
+
+      <div class="mod">
+        <span class="tag">Управление</span>
+        <h3>Бизнес под контролем</h3>
+        <ul>
+          <li>Меню и цены меняются в пару кликов, в том числе по расписанию</li>
+          <li>Техкарты с нормами закладки — себестоимость каждого блюда считается сама</li>
+          <li>Система прогнозирует продажи и помогает планировать закупки и смены</li>
+          <li>Готовые отчёты по бизнесу плюс конструктор собственных</li>
+          <li>Сводка ключевых показателей приходит вам регулярно, автоматически</li>
+          <li>Персонал: учёт явок, расчёт зарплаты, контроль сроков медкнижек</li>
+          <li>Важные события заведения — уведомлением в Telegram</li>
+          <li>Почасовые услуги тоже тарифицируются: бильярд, караоке, игровые зоны</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <span class="tag">Касса и зал</span>
+        <h3>Обслуживание гостей</h3>
+        <ul>
+          <li>Онлайн-касса на Windows-терминале со встроенным эквайрингом</li>
+          <li>Схема зала на экране — официант видит столы и заказы по ним</li>
+          <li>Брони столов и проведение банкетов</li>
+          <li>QR-меню: гость смотрит меню со своего телефона</li>
+          <li>Экран покупателя и электронная очередь</li>
+          <li>Комбо-наборы, конструктор блюд и подсказки для персонала</li>
+        </ul>
+        <div class="extra"><b>Расширение:</b> цифровое меню с заказом на стол и оплатой — от 5 000 ₽/мес</div>
+      </div>
+
+      <div class="mod">
+        <span class="tag">Кухня</span>
+        <h3>Порядок на кухне</h3>
+        <ul>
+          <li>Заказы уходят на кухню сами — печатью на принтер или на экран</li>
+          <li>Экран сборки: повара видят очередь и время по каждому блюду</li>
+          <li>Система планирует работу кухни автоматически</li>
+          <li>Выпуск готовых блюд фиксируется и контролируется</li>
+        </ul>
+        <div class="extra"><b>Расширение:</b> универсальный кухонный экран — от 1 000 ₽/мес за заведение</div>
+      </div>
+
+      <div class="mod">
+        <span class="tag">Склад</span>
+        <h3>Склад без недостач</h3>
+        <ul>
+          <li>Движение каждого товара видно в реальном времени</li>
+          <li>Весь складской документооборот внутри системы</li>
+          <li>Прайс-листы поставщиков под рукой — рост закупочных цен не пройдёт незамеченным</li>
+          <li>Заказы на закупку формируются сами, по прогнозу продаж</li>
+          <li>Инвентаризация со смартфона, с подсказками</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <span class="tag">Лояльность</span>
+        <h3>Гости возвращаются</h3>
+        <ul>
+          <li>Электронные карты гостей и единая гостевая база</li>
+          <li>Готовые механики акций — запускаются без маркетолога</li>
+          <li>Бонусы с рангами: чем чаще гость приходит, тем выгоднее ему</li>
+          <li>Аналитика: видно, как лояльность влияет на выручку</li>
+          <li>Мобильное приложение для гостей с картами и бесплатными пуш-уведомлениями</li>
+        </ul>
+        <div class="extra"><b>Расширение:</b> приложение «Лояльность и маркетинг» — уровень МИНИ 3 500 ₽/мес, ОПТИ 5 000 ₽/мес за заведение</div>
+      </div>
+
+      <div class="mod">
+        <span class="tag">Доставка</span>
+        <h3>Свои заказы на дом</h3>
+        <ul>
+          <li>Приём заказов на доставку с автоподсказкой адресов</li>
+          <li>Заказы из агрегаторов падают прямо в систему</li>
+          <li>Отдельное меню для доставки</li>
+          <li>Вызов внешних курьеров из интерфейса</li>
+        </ul>
+        <div class="extra"><b>Расширения:</b> встроенный сайт доставки — 3 000 ₽/мес за 3 заведения; приложение «Доставка» — МИНИ 2 300 ₽/мес, ОПТИ 5 000 ₽/мес</div>
+      </div>
+
+      <div class="mod">
+        <span class="tag">Госсистемы</span>
+        <h3>С законом всё в порядке</h3>
+        <ul>
+          <li>Маркированные товары продаются по всем правилам</li>
+          <li>ЭДО с поставщиками встроен — бумажки не нужны</li>
+          <li>ЕГАИС: алкоголь под учётом</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <span class="tag">Сеть</span>
+        <h3>Готовность к росту</h3>
+        <ul>
+          <li>Сводная отчётность по всем точкам в облаке</li>
+          <li>Централизованное управление меню, ценами и закупками сети</li>
+          <li>Единые программы лояльности для всех заведений</li>
+        </ul>
+        <div class="extra"><b>Расширение:</b> приложение «Управление франшизой» — 1 000 ₽/мес за заведение</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap inner">
+    <div>
+      <h2>Внедрим iiko в вашем ресторане под ключ</h2>
+      <p>Подберём оборудование, установим и настроим систему, заведём меню и обучим команду. А после запуска возьмём заведение на сопровождение — 20 лет опыта Софт Трейд к вашим услугам.</p>
+    </div>
+    <a class="btn btn-primary" href="softtrade-horeca-landing.html#contact">Оставить заявку</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Софт Трейд. Официальный дилер iiko.</span>
+    <span><a href="softtrade-horeca-landing.html">resto.st54.ru</a> · <a href="https://www.st54.ru" target="_blank" rel="noopener">st54.ru</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
