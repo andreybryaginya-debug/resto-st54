@@ -752,12 +752,12 @@ footer a{color:var(--ink-soft)}
     </div>
     <form action="#" method="post" onsubmit="event.preventDefault();alert('Форма пока не подключена к отправке — подключим на этапе публикации.');">
       <div class="field">
-        <label for="f-name">Как к вам обращаться</label>
-        <input id="f-name" name="name" type="text" required autocomplete="name">
+        <label for="f-name" class="req">Как к вам обращаться</label>
+        <input id="f-name" name="name" type="text" required autocomplete="name" pattern=".*\S.*" title="Укажите имя">
       </div>
       <div class="field">
-        <label for="f-phone">Телефон или Мессенджер</label>
-        <input id="f-phone" name="phone" type="text" required autocomplete="tel">
+        <label for="f-phone" class="req">Телефон</label>
+        <input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите 10 цифр номера после +7">
       </div>
       <div class="field">
         <label for="f-type">Формат заведения</label>
@@ -813,6 +813,7 @@ function stPhoneMask(el){
 }
 stPhoneMask(document.getElementById('cb-phone'));
 stPhoneMask(document.getElementById('req-phone'));
+stPhoneMask(document.getElementById('f-phone'));
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.cb-overlay.open').forEach(function(m){m.classList.remove('open');});document.body.classList.remove('modal-open');}});
 </script>
 </body>
