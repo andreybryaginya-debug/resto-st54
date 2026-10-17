@@ -224,6 +224,7 @@ details .a{padding:0 0 22px;color:var(--ink-soft);max-width:760px}
 .contact-line span{display:block;color:#222222;font-weight:700;font-size:18px}
 form .field{margin-bottom:16px}
 form label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:#4E4E4E}
+form label.req:after{content:" *";color:var(--signal)}
 form input,form select,form textarea{width:100%;padding:14px 16px;border-radius:6px;border:1px solid #EBD9D2;background:#FFFFFF;color:#222222;font-family:inherit;font-size:16px}
 form textarea{resize:vertical;min-height:84px;line-height:1.45}
 form input::placeholder,form textarea::placeholder{color:#A3A8AD}
@@ -349,11 +350,11 @@ footer a{color:var(--ink-soft)}
     <p>Оставьте номер — перезвоним в рабочее время и ответим на все вопросы.</p>
     <form action="#" method="post" onsubmit="event.preventDefault();alert('Форма пока не подключена к отправке — подключим на этапе публикации.');">
       <div class="field">
-        <label for="cb-name">Как к вам обращаться</label>
-        <input id="cb-name" name="name" type="text" required autocomplete="name">
+        <label for="cb-name" class="req">Как к вам обращаться</label>
+        <input id="cb-name" name="name" type="text" required autocomplete="name" pattern=".*\S.*" title="Укажите имя">
       </div>
       <div class="field">
-        <label for="cb-phone">Телефон</label>
+        <label for="cb-phone" class="req">Телефон</label>
         <input id="cb-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите 10 цифр номера после +7">
       </div>
       <div class="field">
