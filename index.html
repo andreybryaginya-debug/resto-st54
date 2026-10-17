@@ -374,12 +374,16 @@ footer a{color:var(--ink-soft)}
     <p>Оставьте ваши контакты и мы свяжемся с вами в ближайшее время.</p>
     <form action="#" method="post" onsubmit="event.preventDefault();alert('Форма пока не подключена к отправке — подключим на этапе публикации.');">
       <div class="field">
-        <label for="req-name">Как к вам обращаться</label>
-        <input id="req-name" name="name" type="text" required autocomplete="name">
+        <label for="req-name" class="req">Как к вам обращаться</label>
+        <input id="req-name" name="name" type="text" required autocomplete="name" pattern=".*\S.*" title="Укажите имя">
       </div>
       <div class="field">
-        <label for="req-phone">Телефон</label>
-        <input id="req-phone" name="phone" type="tel" required autocomplete="tel">
+        <label for="req-phone" class="req">Телефон</label>
+        <input id="req-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите 10 цифр номера после +7">
+      </div>
+      <div class="field">
+        <label for="req-comment">Комментарий</label>
+        <textarea id="req-comment" name="comment" maxlength="640" rows="3" placeholder="Что хотите обсудить (необязательно)"></textarea>
       </div>
       <button class="btn btn-primary" type="submit">Отправить заявку</button>
       <label class="consent"><input type="checkbox" checked required><span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="agreement.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
@@ -801,6 +805,7 @@ function stPhoneMask(el){
   });
 }
 stPhoneMask(document.getElementById('cb-phone'));
+stPhoneMask(document.getElementById('req-phone'));
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.cb-overlay.open').forEach(function(m){m.classList.remove('open');});document.body.classList.remove('modal-open');}});
 </script>
 </body>
