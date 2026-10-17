@@ -151,6 +151,18 @@ body.modal-open .seg-detail{opacity:0 !important;visibility:hidden !important}
 .srv h3{font-size:18px;margin-bottom:12px}
 .srv p{color:var(--ink-soft);font-size:15.5px}
 .srv .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--signal);margin-bottom:14px}
+.srv{display:flex;flex-direction:column}
+.srv-more{margin-top:auto;padding:14px 0 0;align-self:flex-start;background:none;border:none;cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:700;color:var(--signal)}
+.srv-more:hover{text-decoration:underline}
+.cb-card.cb-wide{max-width:680px;max-height:90vh;overflow:auto;padding:36px 36px 32px}
+.cb-wide .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--signal);margin-bottom:8px}
+.cb-wide h3{font-size:24px;margin-bottom:12px;padding-right:28px}
+.cb-wide>p{color:var(--ink-soft);font-size:15.5px;line-height:1.55;margin-bottom:18px}
+.cb-wide h4{font-size:15px;margin:18px 0 6px}
+.cb-wide ul{list-style:none;margin:0 0 4px}
+.cb-wide li{font-size:15px;color:var(--ink-soft);padding:3px 0 3px 18px;position:relative;line-height:1.5}
+.cb-wide li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--signal)}
+.cb-wide .btn{margin-top:22px}
 .services-tint{background:#E5EDF4}
 .services-tint .srv{background:#FFFFFF;border-color:#B8C6D4}
 .steps-tint{background:#FFFAE5}
@@ -367,6 +379,41 @@ footer a{color:var(--ink-soft)}
   </div>
 </div>
 
+<div class="cb-overlay" id="mod-iikofront" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikofront-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikofront')">&#10005;</button>
+    <span class="tag">iikoFront</span>
+    <h3 id="mod-iikofront-title">Касса и зал</h3>
+    <p>iikoFront — программа на кассовом терминале, с которой каждый день работают кассир, официант и бармен. Через неё принимают заказы, отправляют их на кухню, рассчитывают гостей и закрывают смену. Всё, что происходит в зале, сразу попадает в учёт: по техкартам списываются продукты, а отчёты в iikoOffice обновляются в тот же момент.</p>
+    <h4>Заказы и зал</h4>
+    <ul>
+      <li>Схема залов со столами: видно, какие заняты, сколько сидит гостей и кто обслуживает.</li>
+      <li>Заказ ведётся по гостям — блюда можно переносить между гостями и столами, делить и объединять счета.</li>
+      <li>Модификаторы, размеры порций, курсы подачи, комментарии для кухни и стоп-лист.</li>
+      <li>Режим быстрого чека для бара и фастфуда, когда счёт закрывают сразу у стойки.</li>
+      <li>Заказ уходит на кухонный принтер или экран iikoSousChef без бумажных «бегунков».</li>
+    </ul>
+    <h4>Оплата</h4>
+    <ul>
+      <li>Наличные, банковские карты, СБП и оплата по QR-коду, подарочные карты и бонусы.</li>
+      <li>Один счёт можно оплатить несколькими способами или разделить между гостями.</li>
+      <li>Пречек для гостя, чек на электронную почту или в SMS.</li>
+    </ul>
+    <h4>Касса и закон</h4>
+    <ul>
+      <li>Работа с фискальным регистратором и ОФД по 54-ФЗ.</li>
+      <li>ЕГАИС для продажи алкоголя и маркировка «Честный знак».</li>
+      <li>Открытие и закрытие смены с отчётами, внесение и изъятие наличных.</li>
+    </ul>
+    <h4>Надёжность и контроль</h4>
+    <ul>
+      <li>При обрыве интернета касса продолжает работать, данные подтягиваются после восстановления связи.</li>
+      <li>Вход сотрудников по PIN-коду или карте, права доступа на скидки, отмены и удаления.</li>
+      <li>Меню и цены задаются один раз в iikoOffice и применяются на всех кассах заведения.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikofront');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
 <div class="cb-overlay" id="req-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
   <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="req-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('req-modal')">&#10005;</button>
@@ -547,6 +594,7 @@ footer a{color:var(--ink-soft)}
         <span class="tag">iikoFront</span>
         <h3>Касса и зал</h3>
         <p>Рабочее место кассира и официанта: приём заказов, схема столов, оплаты любыми способами, работа даже при обрыве интернета.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikofront')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoOffice</span>
