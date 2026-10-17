@@ -46,6 +46,7 @@ header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:bl
 .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}
 .nav-dd-menu a{display:block;padding:4px 18px;font-size:14px}
 .nav-dd-menu a:hover{background:#F5F7FA;color:var(--signal)}
+.nav-dd-sep{height:1px;background:var(--line);margin:4px 0}
 .nav-dd-products b{font-weight:700}
 .nav-dd-products span{color:var(--signal)}
 .nav-links a:hover{color:var(--ink)}
@@ -168,8 +169,9 @@ body.modal-open .seg-detail{opacity:0 !important;visibility:hidden !important}
 .mod-text h4:first-child{margin-top:0}
 .mod-pics{display:flex;flex-direction:column;gap:16px;padding-top:4px}
 .mod-pics figure{margin:0}
-.mod-pics svg{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.mod-pics svg,.mod-pics img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
 .mod-pics figcaption{font-size:12.5px;line-height:1.4;color:var(--ink-soft);margin-top:6px}
+.mod-pics-src{font-size:11.5px;color:var(--ink-soft);opacity:.8}
 @media(max-width:760px){.mod-body{grid-template-columns:1fr}.mod-pics{flex-direction:row;flex-wrap:wrap;gap:12px}.mod-pics figure{flex:1 1 180px}}
 .services-tint{background:#E5EDF4}
 .services-tint .srv{background:#FFFFFF;border-color:#B8C6D4}
@@ -343,14 +345,11 @@ footer a{color:var(--ink-soft)}
           <a href="fastfood.html">Фастфуд</a>
           <a href="kiosk.html">Киоски и стритфуд</a>
           <a href="chain.html">Сети заведений</a>
-        </div>
-      </div>
-      <div class="nav-dd">
-        <a href="#iiko">Решения <span class="dd-caret">▾</span></a>
-        <div class="nav-dd-menu">
+          <div class="nav-dd-sep"></div>
           <a class="nav-dd-products" href="#iiko"><b>Продукты</b> <span>iiko</span></a>
         </div>
       </div>
+      <a href="#iiko">Решения</a>
       <a href="#services">Услуги</a>
       <a href="#tariffs">Сопровождение</a>
       <a href="#equipment">Оборудование</a>
@@ -424,28 +423,31 @@ footer a{color:var(--ink-soft)}
     </div>
     <div class="mod-pics">
       <figure>
-        <svg viewBox="0 0 320 200" aria-hidden="true"><rect width="320" height="200" rx="12" fill="#F5F7FA"/><rect x="40" y="22" width="240" height="140" rx="8" fill="#191C1E"/><rect x="48" y="30" width="224" height="124" rx="4" fill="#FFFFFF"/><rect x="48" y="30" width="224" height="18" rx="4" fill="#E5EDF4"/><circle cx="58" cy="39" r="4" fill="#E05643"/><rect x="68" y="36" width="60" height="6" rx="3" fill="#B8C6D4"/><g stroke="#FFFFFF" stroke-width="2"><rect x="62" y="60" width="34" height="26" rx="5" fill="#E05643"/><rect x="108" y="60" width="34" height="26" rx="5" fill="#8FC7A8"/><rect x="154" y="60" width="34" height="26" rx="5" fill="#8FC7A8"/><rect x="200" y="60" width="34" height="26" rx="5" fill="#E05643"/><circle cx="79" cy="122" r="15" fill="#8FC7A8"/><circle cx="125" cy="122" r="15" fill="#E05643"/><circle cx="171" cy="122" r="15" fill="#8FC7A8"/><rect x="200" y="106" width="56" height="32" rx="5" fill="#F5C05A"/></g><rect x="150" y="162" width="20" height="10" fill="#5A6167"/><rect x="118" y="172" width="84" height="8" rx="4" fill="#5A6167"/></svg>
-        <figcaption>Схема зала: свободные, занятые и забронированные столы</figcaption>
+        <img src="img/iikofront-orders.jpg" alt="iikoFront: экран заказов" loading="lazy">
+        <figcaption>Открытые заказы по столам и официантам на одном экране</figcaption>
       </figure>
       <figure>
-        <svg viewBox="0 0 320 200" aria-hidden="true"><rect width="320" height="200" rx="12" fill="#FFF4F0"/><rect x="34" y="40" width="96" height="130" rx="10" fill="#191C1E"/><rect x="42" y="50" width="80" height="60" rx="4" fill="#FFFFFF"/><text x="82" y="86" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" text-anchor="middle" fill="#191C1E">2 450 ₽</text><g fill="#5A6167"><rect x="46" y="120" width="20" height="12" rx="3"/><rect x="72" y="120" width="20" height="12" rx="3"/><rect x="98" y="120" width="20" height="12" rx="3"/><rect x="46" y="138" width="20" height="12" rx="3"/><rect x="72" y="138" width="20" height="12" rx="3"/></g><rect x="98" y="138" width="20" height="12" rx="3" fill="#8FC7A8"/><rect x="150" y="70" width="62" height="40" rx="6" fill="#E05643"/><rect x="150" y="80" width="62" height="8" fill="#191C1E"/><rect x="156" y="96" width="24" height="6" rx="3" fill="#FFFFFF"/><rect x="232" y="46" width="56" height="112" rx="10" fill="#191C1E"/><rect x="238" y="56" width="44" height="92" rx="4" fill="#FFFFFF"/><g fill="#191C1E"><rect x="246" y="70" width="12" height="12"/><rect x="262" y="70" width="12" height="12"/><rect x="246" y="86" width="12" height="12"/><rect x="264" y="88" width="4" height="4"/><rect x="270" y="94" width="4" height="4"/><rect x="264" y="98" width="4" height="4"/><rect x="246" y="104" width="28" height="4"/><rect x="246" y="112" width="12" height="4"/><rect x="262" y="112" width="12" height="4"/></g><text x="260" y="140" font-family="Manrope,sans-serif" font-size="9" font-weight="700" text-anchor="middle" fill="#8FC7A8">СБП</text></svg>
-        <figcaption>Оплата наличными, картой, по СБП и QR-коду</figcaption>
+        <img src="img/iikofront-payment.jpg" alt="iikoFront: окно оплаты заказа" loading="lazy">
+        <figcaption>Оплата: наличные, карта или несколько способов в одном счёте</figcaption>
       </figure>
       <figure>
-        <svg viewBox="0 0 320 200" aria-hidden="true"><rect width="320" height="200" rx="12" fill="#E5F1EC"/><rect x="60" y="34" width="200" height="118" rx="8" fill="#191C1E"/><rect x="68" y="42" width="184" height="102" rx="4" fill="#FFFFFF"/><g stroke="#B8C6D4" stroke-width="3" stroke-linecap="round" fill="none"><path d="M120 74 q40 -30 80 0"/><path d="M134 88 q26 -20 52 0"/><path d="M148 102 q12 -9 24 0"/></g><circle cx="160" cy="116" r="5" fill="#B8C6D4"/><line x1="112" y1="60" x2="208" y2="122" stroke="#E05643" stroke-width="6" stroke-linecap="round"/><circle cx="222" cy="58" r="20" fill="#8FC7A8"/><path d="M212 58 l7 7 l13 -14" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="150" y="152" width="20" height="10" fill="#5A6167"/><rect x="118" y="162" width="84" height="8" rx="4" fill="#5A6167"/><text x="160" y="186" font-family="Manrope,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#5A6167">касса продолжает работать</text></svg>
-        <figcaption>При обрыве интернета продажи не останавливаются</figcaption>
+        <img src="img/iikofront-pos.jpg" alt="Кассовый терминал с iikoFront в зале ресторана" loading="lazy">
+        <figcaption>Кассовый терминал с iikoFront в зале ресторана</figcaption>
       </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
     </div>
     </div>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikofront');stOpen('req-modal')">Оставить заявку</button>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikofront');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikooffice" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikooffice-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikooffice-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikooffice')">&#10005;</button>
     <span class="tag">iikoOffice</span>
     <h3 id="mod-iikooffice-title">Склад и учёт</h3>
     <p>iikoOffice — бэк-офис заведения, в котором работают управляющий, бухгалтер и калькулятор. Здесь заводят меню и техкарты, принимают товар, считают себестоимость и смотрят, сколько заведение заработало. Касса и склад связаны: каждая продажа на iikoFront сразу списывает продукты по техкарте, поэтому остатки и прибыль всегда актуальны.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Меню и техкарты</h4>
     <ul>
       <li>Технологические карты с нормами закладки — себестоимость каждого блюда считается автоматически.</li>
@@ -469,15 +471,34 @@ footer a{color:var(--ink-soft)}
       <li>Учёт явок и смен, расчёт зарплаты и взаиморасчёты с сотрудниками.</li>
       <li>Права доступа: кто что может видеть и менять.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikooffice');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikooffice-techcard.jpg" alt="iikoOffice: технологическая карта блюда" loading="lazy">
+        <figcaption>Техкарта блюда: состав, себестоимость, отдельные карты для размеров</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikooffice-pricelist.jpg" alt="iikoOffice: прайс-лист поставщика" loading="lazy">
+        <figcaption>Прайс-листы поставщиков и контроль цен в накладных</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikooffice-inventory.jpg" alt="Инвентаризация со смартфона" loading="lazy">
+        <figcaption>Инвентаризация со смартфона прямо у полки</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikooffice');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikodelivery" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikodelivery-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikodelivery-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikodelivery')">&#10005;</button>
     <span class="tag">iikoDelivery</span>
     <h3 id="mod-iikodelivery-title">Доставка</h3>
     <p>iikoDelivery — модуль, который собирает заказы на доставку и самовывоз из всех источников в одно окно и ведёт каждый заказ до вручения гостю. Подходит и одному ресторану, и сети: оператор, кухня и курьеры видят одну и ту же картину.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Приём заказов</h4>
     <ul>
       <li>Заказы с сайта, из мобильного приложения, по телефону и от агрегаторов попадают в одну очередь.</li>
@@ -496,15 +517,34 @@ footer a{color:var(--ink-soft)}
       <li>Сколько заказов пришло с сайта, из приложения и от агрегаторов, средний чек по каналам.</li>
       <li>Отчёты по работе курьеров и территории доставки.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikodelivery');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikodelivery-orders.jpg" alt="iikoDelivery: список доставок" loading="lazy">
+        <figcaption>Список доставок: статусы, суммы, адреса и операторы</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikodelivery-courier.jpg" alt="Приложение курьера" loading="lazy">
+        <figcaption>Приложение курьера: заказы и маршрут в телефоне</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikodelivery-bag.jpg" alt="Курьер с термосумкой" loading="lazy">
+        <figcaption>Своя доставка без комиссий агрегаторов</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikodelivery');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikocard" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikocard-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikocard-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikocard')">&#10005;</button>
     <span class="tag">iikoCard</span>
     <h3 id="mod-iikocard-title">Лояльность гостей</h3>
     <p>iikoCard — конструктор программ лояльности, встроенный в iiko. Он собирает базу гостей, начисляет бонусы и скидки прямо на кассе и помогает возвращать тех, кто давно не заходил. Отдельное приложение гостю не обязательно: достаточно номера телефона.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Бонусы и скидки</h4>
     <ul>
       <li>Гость регистрируется по номеру телефона, у него свой счёт, где копятся бонусы.</li>
@@ -523,15 +563,34 @@ footer a{color:var(--ink-soft)}
       <li>Бонусы по гостям, топ покупателей, объём начислений и списаний.</li>
       <li>Эффект каждой акции в деньгах, а не на глаз.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikocard');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikocard-stats.jpg" alt="iikoCard: статистика посещаемости" loading="lazy">
+        <figcaption>Статистика гостей: визиты, средний чек, категории</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikocard-guests.jpg" alt="Электронная карта лояльности у гостя" loading="lazy">
+        <figcaption>Электронная карта лояльности в телефоне гостя</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikocard-wallet.jpg" alt="Карта лояльности в кошельке смартфона" loading="lazy">
+        <figcaption>Бонусы, кешбэк и акции в кошельке смартфона</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikocard');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikochain" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikochain-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikochain-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikochain')">&#10005;</button>
     <span class="tag">iikoChain</span>
     <h3 id="mod-iikochain-title">Управление сетью</h3>
     <p>iikoChain — центральный офис для сети заведений. Меню, цены, техкарты и акции задаются один раз и расходятся по всем точкам, а отчёты по каждой точке собираются в одном месте. Модуль подходит и собственным ресторанам, и франшизе.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Единые справочники</h4>
     <ul>
       <li>Общее меню, техкарты, цены и скидки для всей сети с возможностью локальных отличий.</li>
@@ -550,15 +609,34 @@ footer a{color:var(--ink-soft)}
       <li>Контроль франчайзинговых заведений по единым правилам.</li>
       <li>Консолидированные отчёты для собственника.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikochain');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikochain-sync.jpg" alt="iikoChain: монитор синхронизации" loading="lazy">
+        <figcaption>Монитор синхронизации: обмен данными между точками сети</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikochain-pricelist.jpg" alt="iikoChain: прайс-лист поставщика" loading="lazy">
+        <figcaption>Единые прайс-листы поставщиков для всей сети</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikochain-map.jpg" alt="Точки сети на карте" loading="lazy">
+        <figcaption>Все заведения сети под управлением одного центра</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikochain');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikosouschef" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikosouschef-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikosouschef-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikosouschef')">&#10005;</button>
     <span class="tag">iikoSousChef</span>
     <h3 id="mod-iikosouschef-title">Экран кухни</h3>
     <p>iikoSousChef — кухонный экран, который заменяет бумажные «бегунки». Заказы с кассы, от официантов и из доставки появляются на экране в очереди, повар отмечает готовность одним касанием, а зал сразу видит, что блюдо можно нести.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Очередь заказов</h4>
     <ul>
       <li>Номер заказа, стол, количество гостей, курс подачи и комментарии официанта.</li>
@@ -577,15 +655,34 @@ footer a{color:var(--ink-soft)}
       <li>Отдельный экран для сборки заказов на доставку и самовывоз.</li>
       <li>При необходимости дублирование на кухонный принтер.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikosouschef');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikosouschef-kitchen.jpg" alt="Кухонный экран на планшете и телефоне" loading="lazy">
+        <figcaption>Кухонный экран на планшете и в телефоне повара</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikosouschef-chef.jpg" alt="Повар отмечает готовность блюда" loading="lazy">
+        <figcaption>Повар отмечает готовность блюда одним касанием</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikosouschef-order.jpg" alt="iikoSousChef: заказ из агрегатора" loading="lazy">
+        <figcaption>Заказ из агрегатора доставки сразу на кухонном экране</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikosouschef');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikowaiter" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikowaiter-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikowaiter-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikowaiter')">&#10005;</button>
     <span class="tag">iikoWaiter</span>
     <h3 id="mod-iikowaiter-title">Мобильный официант</h3>
     <p>iikoWaiter — приложение официанта на смартфоне или планшете. Заказ принимается у столика и в тот же момент уходит на кухню, а рассчитать гостя можно, не отходя от стола. Подключается к кассе по QR-коду и не требует дополнительного оборудования.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Приём заказа</h4>
     <ul>
       <li>Вход по PIN-коду, работа в любом зале, заказ по гостям с переносом блюд.</li>
@@ -602,15 +699,34 @@ footer a{color:var(--ink-soft)}
       <li>iOS и Android, работает и при обрыве связи.</li>
       <li>Лицензии только тем, кто принимает заказы, — раннерам приложение не нужно.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikowaiter');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikowaiter-app.jpg" alt="iikoWaiter: заказы по столам" loading="lazy">
+        <figcaption>Заказы по столам и статусы блюд в приложении официанта</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikowaiter-tablet.jpg" alt="Планшет с меню и заказом" loading="lazy">
+        <figcaption>Меню с фото и счёт гостя на планшете</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikowaiter-hall.jpg" alt="Официант в зале" loading="lazy">
+        <figcaption>Официант больше времени проводит с гостями, а не у кассы</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikowaiter');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikodashboard" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikodashboard-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikodashboard-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikodashboard')">&#10005;</button>
     <span class="tag">iikoDashboard</span>
     <h3 id="mod-iikodashboard-title">Показатели в телефоне</h3>
     <p>iikoDashboard — приложение для собственника и управляющего. Ключевые цифры заведения в телефоне в любой момент: выручка, гости, средний чек, себестоимость. Данные приходят из iikoOffice, поэтому совпадают с учётом до рубля.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Показатели</h4>
     <ul>
       <li>Выручка, число чеков и гостей, средний чек, себестоимость, загрузка зала.</li>
@@ -628,15 +744,34 @@ footer a{color:var(--ink-soft)}
       <li>Сообщение, когда выполнен план по выручке.</li>
       <li>iOS, Android и компьютер.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikodashboard');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikodashboard-phone.jpg" alt="iikoDashboard: график показателей" loading="lazy">
+        <figcaption>Графики выручки и показателей в телефоне</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikodashboard-laptop.jpg" alt="Основные показатели заведения" loading="lazy">
+        <figcaption>Основные показатели: выручка по типам оплаты и категориям</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikodashboard-bar.jpg" alt="Сводка по заведению на ноутбуке" loading="lazy">
+        <figcaption>Сводка по заведению доступна из любого места</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikodashboard');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="mod-iikoweb" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
-  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikoweb-title">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-iikoweb-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikoweb')">&#10005;</button>
     <span class="tag">iikoWeb</span>
     <h3 id="mod-iikoweb-title">Офис в браузере</h3>
     <p>iikoWeb — доступ к бэк-офису через браузер с любого устройства. Ничего не нужно устанавливать: управляющий открывает отчёты, настройки и склад с ноутбука дома, с планшета в зале или со смартфона в дороге. Работает для заведений в облаке iiko.</p>
+    <div class="mod-body">
+    <div class="mod-text">
     <h4>Что доступно</h4>
     <ul>
       <li>Настройки заведения, меню и цены.</li>
@@ -654,7 +789,24 @@ footer a{color:var(--ink-soft)}
       <li>Управлять заведением из любой точки, не привязываясь к компьютеру в офисе.</li>
       <li>Делегировать рутину линейным сотрудникам, оставив себе контроль.</li>
     </ul>
-    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikoweb');stOpen('req-modal')">Оставить заявку</button>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img src="img/iikoweb-stock.jpg" alt="iikoWeb: остатки на складе" loading="lazy">
+        <figcaption>Остатки на складе и рекомендации к заказу в браузере</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikoweb-scheme.jpg" alt="iikoWeb: редактор схемы зала" loading="lazy">
+        <figcaption>Схема зала: настраивается в браузере, отображается на кассе</figcaption>
+      </figure>
+      <figure>
+        <img src="img/iikoweb-forecast.jpg" alt="iikoWeb: прогноз продаж" loading="lazy">
+        <figcaption>Прогноз продаж: план и факт по дням с учётом погоды</figcaption>
+      </figure>
+      <div class="mod-pics-src">Скриншоты — ru.iiko.help, фото — iiko.ru</div>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikoweb');stOpen('req-modal')">Консультация</button>
   </div>
 </div>
 <div class="cb-overlay" id="req-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
@@ -830,8 +982,8 @@ footer a{color:var(--ink-soft)}
 
 <section id="iiko" class="services-tint">
   <div class="wrap">
-    <h2 class="section-title">Всё, чтобы заведение <span style="color:var(--signal)">зарабатывало</span></h2>
-    <p class="section-lead">Собираем систему из модулей iiko под задачи вашего заведения — платите только за то, что действительно нужно.</p>
+    <h2 class="section-title">Продукты <span style="color:var(--signal)">iiko</span> для вашего заведения</h2>
+    <p class="section-lead">Касса, склад, доставка, лояльность и отчёты — девять модулей, которые работают как одна система. Подключаем только те, что нужны именно вам.</p>
     <div class="srv-grid">
       <div class="srv">
         <span class="tag">iikoFront</span>
@@ -936,21 +1088,22 @@ footer a{color:var(--ink-soft)}
 <section class="tariffs" id="tariffs">
   <div class="wrap">
     <h2 class="section-title">Тарифы сопровождения</h2>
-    <p class="section-lead">Честные цены сразу на сайте — без «оставьте телефон, и менеджер всё расскажет». Цифры ниже — примерные, замените на ваши.</p>
+    <p class="section-lead">Честные цены сразу на сайте — без «оставьте телефон, и менеджер всё расскажет».</p>
     <div class="tar-grid">
       <div class="receipt">
         <div class="r-head">БАЗОВЫЙ</div>
         <div class="r-sub">для небольших заведений</div>
         <div class="div"></div>
         <div class="row"><span>Удалённая поддержка</span><span>✓</span></div>
-        <div class="row"><span>Часы работы</span><span>пн–пт 9–18</span></div>
+        <div class="row"><span>Часы работы</span><span>ежедневно 8–23</span></div>
         <div class="row"><span>Обновления iiko</span><span>✓</span></div>
-        <div class="row"><span>Консультации</span><span>✓</span></div>
+        <div class="row"><span>Обеспечение работоспособности</span><span>✓</span></div>
+        <div class="row"><span>Консультации</span><span>по тарифу</span></div>
         <div class="row"><span>Выезд инженера</span><span>по тарифу</span></div>
         <div class="div"></div>
-        <div class="row total"><span>ИТОГО</span><span>от 5 000 ₽</span></div>
+        <div class="row total"><span>ИТОГО</span><span>бесплатно</span></div>
         <div class="per">в месяц за точку</div>
-        <a class="btn btn-ghost" href="#contact">Подключить</a>
+        <button class="btn btn-ghost" type="button" onclick="stOpen('req-modal')">Подключить</button>
       </div>
       <div class="receipt featured">
         <span class="badge">Выбирают чаще всего</span>
@@ -958,15 +1111,16 @@ footer a{color:var(--ink-soft)}
         <div class="r-sub">для активных заведений</div>
         <div class="div"></div>
         <div class="row"><span>Удалённая поддержка</span><span>✓</span></div>
-        <div class="row"><span>Часы работы</span><span>ежедневно 9–22</span></div>
+        <div class="row"><span>Часы работы</span><span>24/7</span></div>
         <div class="row"><span>Обновления iiko</span><span>✓</span></div>
         <div class="row"><span>Приоритет заявок</span><span>✓</span></div>
-        <div class="row"><span>Выезды инженера</span><span>2 в месяц</span></div>
-        <div class="row"><span>Обучение новичков</span><span>✓</span></div>
+        <div class="row"><span>Выезды инженера</span><span>по тарифу</span></div>
+        <div class="row"><span>ЕГАИС, ЧЗ</span><span>по тарифу</span></div>
+        <div class="row"><span>Консультации</span><span>✓</span></div>
         <div class="div"></div>
-        <div class="row total"><span>ИТОГО</span><span>от 9 000 ₽</span></div>
+        <div class="row total"><span>ИТОГО</span><span>от 3 000 ₽</span></div>
         <div class="per">в месяц за точку</div>
-        <a class="btn btn-primary" href="#contact">Подключить</a>
+        <button class="btn btn-primary" type="button" onclick="stOpen('req-modal')">Подключить</button>
       </div>
       <div class="receipt">
         <div class="r-head">СЕТЬ</div>
@@ -975,12 +1129,14 @@ footer a{color:var(--ink-soft)}
         <div class="row"><span>Поддержка</span><span>24/7</span></div>
         <div class="row"><span>Персональный инженер</span><span>✓</span></div>
         <div class="row"><span>Выезды</span><span>безлимит</span></div>
+        <div class="row"><span>Подменное оборудование</span><span>✓</span></div>
+        <div class="row"><span>Обучение новичков</span><span>✓</span></div>
         <div class="row"><span>Аудит учёта</span><span>ежеквартально</span></div>
         <div class="row"><span>SLA по договору</span><span>✓</span></div>
         <div class="div"></div>
         <div class="row total"><span>ИТОГО</span><span>по запросу</span></div>
         <div class="per">рассчитаем под вашу сеть</div>
-        <a class="btn btn-ghost" href="#contact">Обсудить</a>
+        <button class="btn btn-ghost" type="button" onclick="stOpen('req-modal')">Обсудить</button>
       </div>
     </div>
   </div>
