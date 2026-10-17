@@ -22,7 +22,7 @@ header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:bl
 @media(max-width:560px){.logo-img{height:33px}}
 .back{font-size:15px;font-weight:600;color:var(--signal);text-decoration:none;white-space:nowrap}
 .back:hover{text-decoration:underline}
-.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:6px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:inherit;font-weight:700;font-size:16px;padding:15px 26px;border-radius:6px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .btn-primary{background:var(--signal);color:#fff}
 .btn-primary:hover{background:var(--signal-dark)}
 .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
@@ -70,6 +70,23 @@ footer{padding:26px 0;border-top:1px solid var(--line);font-size:14px;color:var(
 .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--ink-soft)}
 :focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+/* окно «Оставить заявку» (как на главной) */
+.cb-overlay{position:fixed;inset:0;background:rgba(25,28,30,.5);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.cb-overlay.open{display:flex}
+.cb-card{background:#fff;border-radius:10px;padding:32px 30px;max-width:400px;width:100%;position:relative;box-shadow:0 20px 60px rgba(25,28,30,.25)}
+.cb-card h3{font-size:22px;margin-bottom:10px}
+.cb-card>p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.cb-close{position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;font-size:18px;color:var(--ink-soft);padding:6px;line-height:1}
+.cb-close:hover{color:var(--ink)}
+form .field{margin-bottom:16px}
+form label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--ink-soft)}
+form input{width:100%;padding:14px 16px;border-radius:6px;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;font-size:16px}
+form input:focus{outline:2px solid var(--signal);border-color:transparent}
+form .btn{width:100%;justify-content:center;margin-top:8px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13.5px;line-height:1.5;color:#4E4E4E;cursor:pointer}
+.consent input{width:17px;height:17px;flex:none;margin-top:2px;accent-color:#4E4E4E;cursor:pointer}
+.consent a{color:var(--signal);text-decoration:none;font-weight:600}
+.consent a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -146,7 +163,7 @@ footer a{color:var(--ink-soft)}
       <h1>iiko для <span class="accent">столовой</span></h1>
       <p>Столовая — это поток: раздача должна лететь, а учёт — сходиться до грамма. iiko справляется с обоими, включая корпоративное питание по картам и депозитам. Ниже — состав тарифа.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="index.html#contact">Оставить заявку</a>
+        <button class="btn btn-primary" type="button" onclick="stOpen('req-modal')">Оставить заявку</button>
         <a class="btn btn-ghost" href="tel:+73833830110">+7 (383) 383-01-10</a>
       </div>
     </div>
@@ -268,7 +285,7 @@ footer a{color:var(--ink-soft)}
       <h2>Внедрим iiko в вашей столовой под ключ</h2>
       <p>Подберём оборудование, установим и настроим систему, заведём меню и обучим команду. А после запуска возьмём заведение на сопровождение — 20 лет опыта Софт Трейд к вашим услугам.</p>
     </div>
-    <a class="btn btn-primary" href="index.html#contact">Оставить заявку</a>
+    <button class="btn btn-primary" type="button" onclick="stOpen('req-modal')">Оставить заявку</button>
   </div>
 </section>
 
@@ -279,5 +296,29 @@ footer a{color:var(--ink-soft)}
   </div>
 </footer>
 
+<div class="cb-overlay" id="req-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="req-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('req-modal')">&#10005;</button>
+    <h3 id="req-title">Оставить заявку</h3>
+    <p>Оставьте ваши контакты и мы свяжемся с вами в ближайшее время.</p>
+    <form action="#" method="post" onsubmit="event.preventDefault();alert('Форма пока не подключена к отправке — подключим на этапе публикации.');">
+      <div class="field">
+        <label for="req-name">Как к вам обращаться</label>
+        <input id="req-name" name="name" type="text" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="req-phone">Телефон</label>
+        <input id="req-phone" name="phone" type="tel" required autocomplete="tel">
+      </div>
+      <button class="btn btn-primary" type="submit">Отправить заявку</button>
+      <label class="consent"><input type="checkbox" checked required><span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="agreement.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+    </form>
+  </div>
+</div>
+<script>
+function stOpen(id){document.getElementById(id).classList.add('open');document.body.classList.add('modal-open');}
+function stClose(id){document.getElementById(id).classList.remove('open');document.body.classList.remove('modal-open');}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.cb-overlay.open').forEach(function(m){m.classList.remove('open');});document.body.classList.remove('modal-open');}});
+</script>
 </body>
 </html>
