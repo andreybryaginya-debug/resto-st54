@@ -414,6 +414,223 @@ footer a{color:var(--ink-soft)}
     <button class="btn btn-primary" type="button" onclick="stClose('mod-iikofront');stOpen('req-modal')">Оставить заявку</button>
   </div>
 </div>
+<div class="cb-overlay" id="mod-iikooffice" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikooffice-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikooffice')">&#10005;</button>
+    <span class="tag">iikoOffice</span>
+    <h3 id="mod-iikooffice-title">Склад и учёт</h3>
+    <p>iikoOffice — бэк-офис заведения, в котором работают управляющий, бухгалтер и калькулятор. Здесь заводят меню и техкарты, принимают товар, считают себестоимость и смотрят, сколько заведение заработало. Касса и склад связаны: каждая продажа на iikoFront сразу списывает продукты по техкарте, поэтому остатки и прибыль всегда актуальны.</p>
+    <h4>Меню и техкарты</h4>
+    <ul>
+      <li>Технологические карты с нормами закладки — себестоимость каждого блюда считается автоматически.</li>
+      <li>Единые справочники продуктов, полуфабрикатов и поставщиков.</li>
+      <li>Меню и цены задаются здесь и применяются на всех кассах.</li>
+    </ul>
+    <h4>Склад и закупки</h4>
+    <ul>
+      <li>Приходы, перемещения, списания и возвраты — весь оборот продуктов в документах.</li>
+      <li>Заявки поставщикам, в том числе автоматические по минимальным остаткам.</li>
+      <li>Инвентаризации с фиксацией расхождений и контроль недостач.</li>
+    </ul>
+    <h4>Деньги и отчёты</h4>
+    <ul>
+      <li>Отчёт о прибылях и убытках, баланс, движение денег по дням и сменам.</li>
+      <li>Продажи по блюдам, категориям, официантам и времени суток.</li>
+      <li>Кассовая дисциплина: внесения, изъятия и расхождения по сменам.</li>
+    </ul>
+    <h4>Персонал</h4>
+    <ul>
+      <li>Учёт явок и смен, расчёт зарплаты и взаиморасчёты с сотрудниками.</li>
+      <li>Права доступа: кто что может видеть и менять.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikooffice');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
+<div class="cb-overlay" id="mod-iikodelivery" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikodelivery-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikodelivery')">&#10005;</button>
+    <span class="tag">iikoDelivery</span>
+    <h3 id="mod-iikodelivery-title">Доставка</h3>
+    <p>iikoDelivery — модуль, который собирает заказы на доставку и самовывоз из всех источников в одно окно и ведёт каждый заказ до вручения гостю. Подходит и одному ресторану, и сети: оператор, кухня и курьеры видят одну и ту же картину.</p>
+    <h4>Приём заказов</h4>
+    <ul>
+      <li>Заказы с сайта, из мобильного приложения, по телефону и от агрегаторов попадают в одну очередь.</li>
+      <li>Гость определяется по номеру телефона, адрес подставляется из справочника — оператор тратит меньше времени.</li>
+      <li>Заказ сразу уходит на кухню, а статус виден всем участникам.</li>
+    </ul>
+    <h4>Курьеры</h4>
+    <ul>
+      <li>Распределение заказов по курьерам и приложение iikoDeliveryMan с деталями заказа и маршрутом.</li>
+      <li>Курьер на карте в реальном времени, отметка о передаче заказа у двери.</li>
+      <li>Зоны доставки с разной стоимостью и временем.</li>
+    </ul>
+    <h4>Контроль и аналитика</h4>
+    <ul>
+      <li>Время приготовления и доставки по каждому заказу, среднее опоздание.</li>
+      <li>Сколько заказов пришло с сайта, из приложения и от агрегаторов, средний чек по каналам.</li>
+      <li>Отчёты по работе курьеров и территории доставки.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikodelivery');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
+<div class="cb-overlay" id="mod-iikocard" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikocard-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikocard')">&#10005;</button>
+    <span class="tag">iikoCard</span>
+    <h3 id="mod-iikocard-title">Лояльность гостей</h3>
+    <p>iikoCard — конструктор программ лояльности, встроенный в iiko. Он собирает базу гостей, начисляет бонусы и скидки прямо на кассе и помогает возвращать тех, кто давно не заходил. Отдельное приложение гостю не обязательно: достаточно номера телефона.</p>
+    <h4>Бонусы и скидки</h4>
+    <ul>
+      <li>Гость регистрируется по номеру телефона, у него свой счёт, где копятся бонусы.</li>
+      <li>Начисление с заказа, с отдельных блюд или категорий; алкоголь можно исключить.</li>
+      <li>Приветственные бонусы за регистрацию или первый заказ, скидки по расписанию и дням недели.</li>
+      <li>Подарочные и депозитные карты.</li>
+    </ul>
+    <h4>Акции и общение с гостями</h4>
+    <ul>
+      <li>Поздравления с днём рождения и персональные предложения.</li>
+      <li>Сегменты базы по частоте визитов, среднему чеку и предпочтениям, RFM-анализ.</li>
+      <li>Электронная карта в телефоне гостя, связь с приложением и сайтом доставки.</li>
+    </ul>
+    <h4>Отчёты</h4>
+    <ul>
+      <li>Бонусы по гостям, топ покупателей, объём начислений и списаний.</li>
+      <li>Эффект каждой акции в деньгах, а не на глаз.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikocard');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
+<div class="cb-overlay" id="mod-iikochain" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikochain-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikochain')">&#10005;</button>
+    <span class="tag">iikoChain</span>
+    <h3 id="mod-iikochain-title">Управление сетью</h3>
+    <p>iikoChain — центральный офис для сети заведений. Меню, цены, техкарты и акции задаются один раз и расходятся по всем точкам, а отчёты по каждой точке собираются в одном месте. Модуль подходит и собственным ресторанам, и франшизе.</p>
+    <h4>Единые справочники</h4>
+    <ul>
+      <li>Общее меню, техкарты, цены и скидки для всей сети с возможностью локальных отличий.</li>
+      <li>Единая база сотрудников и гостей.</li>
+      <li>Изменения доходят до касс всех точек без ручного переноса.</li>
+    </ul>
+    <h4>Закупки и производство</h4>
+    <ul>
+      <li>Заявки из ресторанов сводятся в общий заказ поставщику.</li>
+      <li>Задания для собственного производства или фабрики-кухни, расчёт потребности в продуктах.</li>
+      <li>Перемещения между складами точек, в том числе между разными юрлицами.</li>
+    </ul>
+    <h4>Контроль сети</h4>
+    <ul>
+      <li>Продажи, маржинальность и рентабельность по каждой точке в сравнении.</li>
+      <li>Контроль франчайзинговых заведений по единым правилам.</li>
+      <li>Консолидированные отчёты для собственника.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikochain');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
+<div class="cb-overlay" id="mod-iikosouschef" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikosouschef-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikosouschef')">&#10005;</button>
+    <span class="tag">iikoSousChef</span>
+    <h3 id="mod-iikosouschef-title">Экран кухни</h3>
+    <p>iikoSousChef — кухонный экран, который заменяет бумажные «бегунки». Заказы с кассы, от официантов и из доставки появляются на экране в очереди, повар отмечает готовность одним касанием, а зал сразу видит, что блюдо можно нести.</p>
+    <h4>Очередь заказов</h4>
+    <ul>
+      <li>Номер заказа, стол, количество гостей, курс подачи и комментарии официанта.</li>
+      <li>Блюда с модификаторами, чтобы повар не переспрашивал.</li>
+      <li>Цвета по цехам: шефу проще распределить работу между поварами.</li>
+    </ul>
+    <h4>Работа повара</h4>
+    <ul>
+      <li>Смена статуса блюда одним касанием, долгое нажатие для действий с заказом целиком.</li>
+      <li>Подсказки по приготовлению из техкарты прямо на экране.</li>
+      <li>Контроль времени: видно, какие заказы ждут дольше нормы.</li>
+    </ul>
+    <h4>Где работает</h4>
+    <ul>
+      <li>Планшет, моноблок или обычный компьютер на кухне.</li>
+      <li>Отдельный экран для сборки заказов на доставку и самовывоз.</li>
+      <li>При необходимости дублирование на кухонный принтер.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikosouschef');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
+<div class="cb-overlay" id="mod-iikowaiter" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikowaiter-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikowaiter')">&#10005;</button>
+    <span class="tag">iikoWaiter</span>
+    <h3 id="mod-iikowaiter-title">Мобильный официант</h3>
+    <p>iikoWaiter — приложение официанта на смартфоне или планшете. Заказ принимается у столика и в тот же момент уходит на кухню, а рассчитать гостя можно, не отходя от стола. Подключается к кассе по QR-коду и не требует дополнительного оборудования.</p>
+    <h4>Приём заказа</h4>
+    <ul>
+      <li>Вход по PIN-коду, работа в любом зале, заказ по гостям с переносом блюд.</li>
+      <li>Быстрый поиск по меню, модификаторы и размеры, курсы подачи, стоп-лист.</li>
+      <li>Комментарии для кухни и уведомление официанту, когда блюдо готово.</li>
+    </ul>
+    <h4>Расчёт у столика</h4>
+    <ul>
+      <li>Печать пречека и оплата наличными, картой или по СБП прямо у стола.</li>
+      <li>Чек гостю на электронную почту или в SMS.</li>
+    </ul>
+    <h4>Техника</h4>
+    <ul>
+      <li>iOS и Android, работает и при обрыве связи.</li>
+      <li>Лицензии только тем, кто принимает заказы, — раннерам приложение не нужно.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikowaiter');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
+<div class="cb-overlay" id="mod-iikodashboard" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikodashboard-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikodashboard')">&#10005;</button>
+    <span class="tag">iikoDashboard</span>
+    <h3 id="mod-iikodashboard-title">Показатели в телефоне</h3>
+    <p>iikoDashboard — приложение для собственника и управляющего. Ключевые цифры заведения в телефоне в любой момент: выручка, гости, средний чек, себестоимость. Данные приходят из iikoOffice, поэтому совпадают с учётом до рубля.</p>
+    <h4>Показатели</h4>
+    <ul>
+      <li>Выручка, число чеков и гостей, средний чек, себестоимость, загрузка зала.</li>
+      <li>Панель собирается под себя: выбираете, какие цифры видеть первыми.</li>
+      <li>Сравнение с прошлым днём, месяцем, годом или любым периодом.</li>
+    </ul>
+    <h4>Рейтинги и фильтры</h4>
+    <ul>
+      <li>Лучшие и худшие блюда, официанты, часы и дни.</li>
+      <li>Фильтры по ресторану, залу, кассе, типу оплаты и сотруднику.</li>
+    </ul>
+    <h4>Уведомления</h4>
+    <ul>
+      <li>Отчёты в Telegram по расписанию или по запросу.</li>
+      <li>Сообщение, когда выполнен план по выручке.</li>
+      <li>iOS, Android и компьютер.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikodashboard');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
+<div class="cb-overlay" id="mod-iikoweb" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide" role="dialog" aria-modal="true" aria-labelledby="mod-iikoweb-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-iikoweb')">&#10005;</button>
+    <span class="tag">iikoWeb</span>
+    <h3 id="mod-iikoweb-title">Офис в браузере</h3>
+    <p>iikoWeb — доступ к бэк-офису через браузер с любого устройства. Ничего не нужно устанавливать: управляющий открывает отчёты, настройки и склад с ноутбука дома, с планшета в зале или со смартфона в дороге. Работает для заведений в облаке iiko.</p>
+    <h4>Что доступно</h4>
+    <ul>
+      <li>Настройки заведения, меню и цены.</li>
+      <li>Складские документы и остатки.</li>
+      <li>Персонал, смены и права доступа.</li>
+      <li>Кассовые смены и сведения о чеках.</li>
+    </ul>
+    <h4>Отчёты</h4>
+    <ul>
+      <li>Продажи блюд, складской отчёт, отчёт о прибылях и убытках, баланс.</li>
+      <li>Графики и диаграммы для быстрого взгляда на день.</li>
+    </ul>
+    <h4>Зачем</h4>
+    <ul>
+      <li>Управлять заведением из любой точки, не привязываясь к компьютеру в офисе.</li>
+      <li>Делегировать рутину линейным сотрудникам, оставив себе контроль.</li>
+    </ul>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-iikoweb');stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</div>
 <div class="cb-overlay" id="req-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
   <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="req-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('req-modal')">&#10005;</button>
@@ -600,41 +817,49 @@ footer a{color:var(--ink-soft)}
         <span class="tag">iikoOffice</span>
         <h3>Склад и учёт</h3>
         <p>Бэк-офис заведения: складской учёт, техкарты, себестоимость, инвентаризации и отчёты о прибыли в реальном времени.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikooffice')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoDelivery</span>
         <h3>Доставка</h3>
         <p>Приём заказов с сайта, по телефону и из агрегаторов, распределение по курьерам и контроль времени доставки.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikodelivery')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoCard</span>
         <h3>Лояльность гостей</h3>
         <p>Бонусные программы, акции, скидки и гостевая база — чтобы гости возвращались чаще и оставляли больше.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikocard')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoChain</span>
         <h3>Управление сетью</h3>
         <p>Централизованное меню, цены, закупки и аналитика по всем точкам сети из одного офиса.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikochain')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoSousChef</span>
         <h3>Экран кухни</h3>
         <p>Заказы уходят на кухню без бумаги: повара видят очередь и время приготовления, зал — готовность блюд.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikosouschef')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoWaiter</span>
         <h3>Мобильный официант</h3>
         <p>Официант принимает заказ у столика со смартфона: блюда сразу уходят на кухню, видны стоп-лист и готовность, рассчитать гостя можно не отходя от стола.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikowaiter')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoDashboard</span>
         <h3>Показатели в телефоне</h3>
         <p>Приложение для руководителя: выручка, средний чек, гости и себестоимость онлайн, сравнение периодов, рейтинги блюд и сотрудников, уведомления о выполнении плана.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikodashboard')">Подробнее →</button>
       </div>
       <div class="srv">
         <span class="tag">iikoWeb</span>
         <h3>Офис в браузере</h3>
         <p>Управление заведением из любой точки: настройки, отчёты, склад и персонал открываются с компьютера, планшета или смартфона без установки программ.</p>
+        <button class="srv-more" type="button" onclick="stOpen('mod-iikoweb')">Подробнее →</button>
       </div>
     </div>
   </div>
