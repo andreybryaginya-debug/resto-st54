@@ -48,6 +48,11 @@ section{padding:72px 0}
 .mod{border:1px solid var(--line);border-radius:10px;padding:28px 26px;background:#fff}
 .mod .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:var(--signal);letter-spacing:.05em;margin-bottom:10px;text-transform:uppercase}
 .mod h3{font-size:19px;margin-bottom:14px}
+.mod{scroll-margin-top:84px}
+.mod-nav{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:4px 0 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--signal)}
+.mod-nav a{color:var(--signal);text-decoration:none}
+.mod-nav a:hover{text-decoration:underline}
+.mod-nav span{color:var(--line)}
 .mod ul{list-style:none}
 .mod li{font-size:15px;color:var(--ink-soft);padding:4px 0 4px 18px;position:relative;line-height:1.5}
 .mod li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--signal)}
@@ -98,9 +103,10 @@ footer a{color:var(--ink-soft)}
 <section>
   <div class="wrap">
     <h2 class="section-title">Из чего состоит iiko для кофейни и пекарни</h2>
+    <nav class="mod-nav" aria-label="Направления"><a href="#m-control">Управление</a> <span>·</span> <a href="#m-pos">Касса</a> <span>·</span> <a href="#m-kitchen">Кухня</a> <span>·</span> <a href="#m-stock">Склад</a> <span>·</span> <a href="#m-loyalty">Лояльность</a> <span>·</span> <a href="#m-delivery">Доставка</a> <span>·</span> <a href="#m-gov">Госсистемы</a></nav>
     <p class="section-lead">Всё перечисленное входит в тариф — отдельно отмечены только платные расширения и старшие уровни.</p>
     <div class="mod-grid">
-      <div class="mod">
+      <div class="mod" id="m-control">
         <span class="tag">Управление</span>
         <h3>Бизнес в телефоне</h3>
         <ul>
@@ -114,7 +120,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> уровень ОПТИ добавляет конструктор отчётов, расписание и контроль явки, учёт медкнижек и оповещения в Telegram</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-pos">
         <span class="tag">Касса</span>
         <h3>Касса, которая всегда с собой</h3>
         <ul>
@@ -125,7 +131,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> уровень МИНИ добавляет Windows-кассу, экраны покупателя и приём доставки; ОПТИ — три кассы и командную работу официантов</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-kitchen">
         <span class="tag">Кухня</span>
         <h3>Заказы без криков «готово!»</h3>
         <ul>
@@ -133,7 +139,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> уровень МИНИ добавляет кухонный экран, планирование работы кухни и контроль выпуска блюд</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-stock">
         <span class="tag">Склад</span>
         <h3>Продукты под учётом</h3>
         <ul>
@@ -144,7 +150,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> уровень МИНИ добавляет прайс-листы поставщиков, автозаказ, мобильную инвентаризацию и акты переработки</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-loyalty">
         <span class="tag">Лояльность</span>
         <h3>Гости возвращаются</h3>
         <ul>
@@ -155,7 +161,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> уровень МИНИ расширяет набор готовых акций; ОПТИ добавляет сегментацию гостей и конструктор акций</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-delivery">
         <span class="tag">Доставка</span>
         <h3>Заказы навынос и на дом</h3>
         <ul>
@@ -165,7 +171,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> уровень МИНИ добавляет собственный сайт доставки и зоны; ОПТИ — колл-центр, приложение курьера и карту заказов</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-gov">
         <span class="tag">Госсистемы</span>
         <h3>С законом всё в порядке</h3>
         <ul>

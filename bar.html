@@ -48,6 +48,11 @@ section{padding:72px 0}
 .mod{border:1px solid var(--line);border-radius:10px;padding:28px 26px;background:#fff}
 .mod .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:var(--signal);letter-spacing:.05em;margin-bottom:10px;text-transform:uppercase}
 .mod h3{font-size:19px;margin-bottom:14px}
+.mod{scroll-margin-top:84px}
+.mod-nav{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:4px 0 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--signal)}
+.mod-nav a{color:var(--signal);text-decoration:none}
+.mod-nav a:hover{text-decoration:underline}
+.mod-nav span{color:var(--line)}
 .mod ul{list-style:none}
 .mod li{font-size:15px;color:var(--ink-soft);padding:4px 0 4px 18px;position:relative;line-height:1.5}
 .mod li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--signal)}
@@ -98,9 +103,10 @@ footer a{color:var(--ink-soft)}
 <section>
   <div class="wrap">
     <h2 class="section-title">Из чего состоит iiko для бара или паба</h2>
+    <nav class="mod-nav" aria-label="Направления"><a href="#m-control">Управление</a> <span>·</span> <a href="#m-pos">Касса и зал</a> <span>·</span> <a href="#m-kitchen">Кухня</a> <span>·</span> <a href="#m-stock">Склад</a> <span>·</span> <a href="#m-loyalty">Лояльность</a> <span>·</span> <a href="#m-delivery">Доставка</a> <span>·</span> <a href="#m-gov">Госсистемы</a> <span>·</span> <a href="#m-chain">Сеть</a></nav>
     <p class="section-lead">Всё перечисленное входит в тариф — отдельно отмечены только платные расширения и старшие уровни.</p>
     <div class="mod-grid">
-      <div class="mod">
+      <div class="mod" id="m-control">
         <span class="tag">Управление</span>
         <h3>Бизнес под контролем</h3>
         <ul>
@@ -114,7 +120,7 @@ footer a{color:var(--ink-soft)}
           <li>Почасовые услуги тоже тарифицируются: бильярд, караоке, игровые зоны</li>
         </ul>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-pos">
         <span class="tag">Касса и зал</span>
         <h3>Обслуживание гостей</h3>
         <ul>
@@ -126,7 +132,7 @@ footer a{color:var(--ink-soft)}
           <li>Комбо-наборы, конструктор блюд и подсказки для персонала</li>
         </ul>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-kitchen">
         <span class="tag">Кухня</span>
         <h3>Порядок на кухне</h3>
         <ul>
@@ -137,7 +143,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> универсальный кухонный экран — от 1 000 ₽/мес за заведение</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-stock">
         <span class="tag">Склад</span>
         <h3>Склад без недостач</h3>
         <ul>
@@ -148,7 +154,7 @@ footer a{color:var(--ink-soft)}
           <li>Инвентаризация со смартфона, с подсказками</li>
         </ul>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-loyalty">
         <span class="tag">Лояльность</span>
         <h3>Гости возвращаются</h3>
         <ul>
@@ -160,7 +166,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> приложение «Лояльность и маркетинг» — уровень МИНИ 3 500 ₽/мес, ОПТИ 5 000 ₽/мес за заведение</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-delivery">
         <span class="tag">Доставка</span>
         <h3>Свои заказы на дом</h3>
         <ul>
@@ -171,7 +177,7 @@ footer a{color:var(--ink-soft)}
         </ul>
         <div class="extra"><b>Расширение:</b> встроенный сайт доставки — 3 000 ₽/мес за 3 заведения; приложение «Доставка» — МИНИ 2 300 ₽/мес, ОПТИ 5 000 ₽/мес</div>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-gov">
         <span class="tag">Госсистемы</span>
         <h3>С законом всё в порядке</h3>
         <ul>
@@ -180,7 +186,7 @@ footer a{color:var(--ink-soft)}
           <li>ЕГАИС: алкоголь под учётом</li>
         </ul>
       </div>
-      <div class="mod">
+      <div class="mod" id="m-chain">
         <span class="tag">Сеть</span>
         <h3>Готовность к росту</h3>
         <ul>
