@@ -145,7 +145,7 @@ body.modal-open .seg-detail{opacity:0 !important;visibility:hidden !important}
 .cb-card h3{font-size:22px;margin-bottom:10px}
 .cb-card>p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
 .cb-card form label{color:var(--ink-soft)}
-.cb-card form input{border:1px solid var(--line);background:#fff;color:var(--ink)}
+.cb-card form input,.cb-card form textarea{border:1px solid var(--line);background:#fff;color:var(--ink)}
 .cb-close{position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;font-size:18px;color:var(--ink-soft);padding:6px;line-height:1}
 .cb-close:hover{color:var(--ink)}
 @media(max-width:560px){.seg-btn{font-size:11px;padding:4px 9px;right:7px;bottom:7px}}
@@ -224,8 +224,10 @@ details .a{padding:0 0 22px;color:var(--ink-soft);max-width:760px}
 .contact-line span{display:block;color:#222222;font-weight:700;font-size:18px}
 form .field{margin-bottom:16px}
 form label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:#4E4E4E}
-form input,form select{width:100%;padding:14px 16px;border-radius:6px;border:1px solid #EBD9D2;background:#FFFFFF;color:#222222;font-family:inherit;font-size:16px}
-form input:focus,form select:focus{outline:2px solid var(--signal);border-color:transparent}
+form input,form select,form textarea{width:100%;padding:14px 16px;border-radius:6px;border:1px solid #EBD9D2;background:#FFFFFF;color:#222222;font-family:inherit;font-size:16px}
+form textarea{resize:vertical;min-height:84px;line-height:1.45}
+form input::placeholder,form textarea::placeholder{color:#A3A8AD}
+form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--signal);border-color:transparent}
 form .btn{width:100%;justify-content:center;margin-top:8px}
 .form-note{font-size:13px;color:#4E4E4E;margin-top:12px}
 .consent{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13.5px;line-height:1.5;color:#4E4E4E;cursor:pointer}
@@ -352,7 +354,11 @@ footer a{color:var(--ink-soft)}
       </div>
       <div class="field">
         <label for="cb-phone">Телефон</label>
-        <input id="cb-phone" name="phone" type="tel" required autocomplete="tel">
+        <input id="cb-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите 10 цифр номера после +7">
+      </div>
+      <div class="field">
+        <label for="cb-comment">Комментарий</label>
+        <textarea id="cb-comment" name="comment" maxlength="640" rows="3" placeholder="Что хотите обсудить (необязательно)"></textarea>
       </div>
       <button class="btn btn-primary" type="submit">Жду звонка</button>
       <label class="consent"><input type="checkbox" checked required><span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="agreement.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
@@ -781,6 +787,19 @@ footer a{color:var(--ink-soft)}
 <script>
 function stOpen(id){document.getElementById(id).classList.add('open');document.body.classList.add('modal-open');}
 function stClose(id){document.getElementById(id).classList.remove('open');document.body.classList.remove('modal-open');}
+/* маска телефона +7 (___) ___-__-__ */
+function stPhoneFormat(d){var r='+7 (';if(d.length)r+=d.slice(0,3);if(d.length>3)r+=') '+d.slice(3,6);if(d.length>6)r+='-'+d.slice(6,8);if(d.length>8)r+='-'+d.slice(8,10);return r;}
+function stPhoneMask(el){
+  el.addEventListener('focus',function(){if(!el.value)el.value='+7 (';});
+  el.addEventListener('blur',function(){if(el.value==='+7 (')el.value='';});
+  el.addEventListener('input',function(e){
+    var d=el.value.replace(/\D/g,'');if(el.value.indexOf('+7')===0)d=d.slice(1);if(d.length>10&&(d[0]==='7'||d[0]==='8'))d=d.slice(1);d=d.slice(0,10);
+    var v=stPhoneFormat(d);
+    if(e.inputType==='deleteContentBackward'&&v===el.dataset.prev){d=d.slice(0,-1);v=stPhoneFormat(d);}
+    el.value=v;el.dataset.prev=v;
+  });
+}
+stPhoneMask(document.getElementById('cb-phone'));
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.cb-overlay.open').forEach(function(m){m.classList.remove('open');});document.body.classList.remove('modal-open');}});
 </script>
 </body>
