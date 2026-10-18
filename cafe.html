@@ -16,7 +16,39 @@ body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--paper);l
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:'Unbounded',sans-serif;line-height:1.2;font-weight:600}
 header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-links{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:500;margin-left:24px}
+.nav-links a{text-decoration:none;color:var(--ink-soft);white-space:nowrap}
+.nav-dd{position:relative;display:flex;align-items:center;align-self:stretch}
+.nav-dd>a{position:relative;padding:4px 0}
+.nav-dd>a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--signal);transform:scaleX(0);transition:transform .15s}
+.nav-dd:hover>a{color:var(--signal)}
+.nav-dd:hover>a:after{transform:scaleX(1)}
+.dd-caret{font-size:14px;font-weight:700;color:var(--signal);line-height:1}
+.nav-dd-menu{position:absolute;top:calc(100% + 10px);left:-8px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 30px rgba(25,28,30,.12);padding:4px 0;min-width:230px;display:none;z-index:60}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}
+.nav-dd-menu:before{content:"";position:absolute;top:-7px;left:26px;width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-top:1px solid var(--line);transform:rotate(45deg)}
+.nav-dd-menu:after{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.nav-dd-menu a{display:block;padding:4px 18px;font-size:14px}
+.nav-dd-menu a:hover{background:#F5F7FA;color:var(--signal)}
+.nav-dd-sep{height:1px;background:var(--line);margin:4px 0}
+.nav-dd-products b{font-weight:700}
+.nav-dd-products span{color:var(--signal)}
+.nav-dd-menu button{display:block;width:100%;text-align:left;padding:4px 18px;font-size:14px;font-family:inherit;font-weight:500;color:var(--ink-soft);background:none;border:none;cursor:pointer;white-space:nowrap}
+.nav-dd-menu button:hover{background:#F5F7FA;color:var(--signal)}
+.nav-links a:hover{color:var(--ink)}
+.nav-phone{font-weight:700;text-decoration:none;font-size:15px;white-space:nowrap;margin-left:16px}
+.nav-phone{color:var(--ink)}
+.crumbs{background:#F5F7FA;font-size:13.5px;color:var(--ink-soft)}
+.crumbs .wrap{padding-top:12px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--signal)}
+.crumbs span{color:var(--ink);font-weight:600}
+.crumbs i{font-style:normal;margin:0 6px}
+@media(max-width:900px){.nav-links{display:none}}
+.nav-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.nav-callback{background:none;border:none;cursor:pointer;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;color:var(--signal);text-decoration:underline;text-underline-offset:3px;padding:0;white-space:nowrap}
+.nav-callback:hover{color:var(--signal-dark)}
 .logo{text-decoration:none;display:flex;align-items:center}
 .logo-img{height:40px;width:auto;display:block}
 @media(max-width:560px){.logo-img{height:33px}}
@@ -156,9 +188,52 @@ form .btn{width:100%;justify-content:center;margin-top:8px}
 <text x="162.5" y="50.2" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#828282" letter-spacing="1.1">Системы автоматизации</text>
 </svg>
     </a>
-    <a class="back" href="index.html#segments">← Назад</a>
+    <nav class="nav-links" aria-label="Разделы">
+      <div class="nav-dd">
+        <a href="formats.html">Автоматизируем <span class="dd-caret">▾</span></a>
+        <div class="nav-dd-menu">
+          <a href="restaurant.html">Рестораны</a>
+          <a href="coffee.html">Кофейни и пекарни</a>
+          <a href="bar.html">Бары и пабы</a>
+          <a href="canteen.html">Столовые</a>
+          <a href="cafe.html">Кафе</a>
+          <a href="delivery.html">Доставка и dark kitchen</a>
+          <a href="fastfood.html">Фастфуд</a>
+          <a href="kiosk.html">Киоски и стритфуд</a>
+          <a href="chain.html">Сети заведений</a>
+        </div>
+      </div>
+      <div class="nav-dd">
+        <a href="solutions.html">Решения <span class="dd-caret">▾</span></a>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-products" href="products.html"><b>Продукты</b> <span>iiko</span></a>
+          <a href="profit.html">Инструменты</a>
+          <a href="solutions.html#egais">Инвентаризация ЕГАИС</a>
+          <a href="solutions.html#edo">Документооборот (ЭДО)</a>
+          <a href="solutions.html#ai">ИИ-ассистент для iiko</a>
+        </div>
+      </div>
+      <div class="nav-dd">
+        <a href="index.html#services">Услуги и цены <span class="dd-caret">▾</span></a>
+        <div class="nav-dd-menu">
+          <a href="iikocloud.html">Тарифы iikoCloud</a>
+          <a href="cto.html">ЦТО кассы и сервис</a>
+          <button type="button" onclick="stOpen('req-modal')">Обучение и аудит</button>
+          <button type="button" onclick="stOpen('req-modal')">Госсистемы / ЕГАИС / ЧЗ / Меркурий</button>
+        </div>
+      </div>
+      <a href="index.html#tariffs">Сопровождение</a>
+      <a href="index.html#equipment">Оборудование</a>
+      <a href="index.html#steps">Вопросы</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+73833830110">+7 (383) 383-01-10</a>
+      <button class="nav-callback" type="button" onclick="stOpen('cb-modal')">Заказать звонок</button>
+    </div>
   </div>
 </header>
+
+<nav class="crumbs" aria-label="Вы здесь"><div class="wrap"><a href="index.html">Главная</a><i>/</i><a href="formats.html">Автоматизируем</a><i>/</i><span>Кафе</span></div></nav>
 
 <section class="hero">
   <div class="wrap hero-grid">
@@ -290,6 +365,29 @@ form .btn{width:100%;justify-content:center;margin-top:8px}
   </div>
 </footer>
 
+<div class="cb-overlay" id="cb-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="cb-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('cb-modal')">&#10005;</button>
+    <h3 id="cb-title">Заказать звонок</h3>
+    <p>Оставьте номер — перезвоним в рабочее время и ответим на все вопросы.</p>
+    <form action="#" method="post" onsubmit="event.preventDefault();alert('Форма пока не подключена к отправке — подключим на этапе публикации.');">
+      <div class="field">
+        <label for="cb-name" class="req">Как к вам обращаться</label>
+        <input id="cb-name" name="name" type="text" required autocomplete="name" pattern=".*\S.*" title="Укажите имя">
+      </div>
+      <div class="field">
+        <label for="cb-phone" class="req">Телефон</label>
+        <input id="cb-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите 10 цифр номера после +7">
+      </div>
+      <div class="field">
+        <label for="cb-comment">Комментарий</label>
+        <textarea id="cb-comment" name="comment" maxlength="640" rows="3" placeholder="Что хотите обсудить (необязательно)"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Жду звонка</button>
+      <label class="consent"><input type="checkbox" checked required><span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="agreement.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+    </form>
+  </div>
+</div>
 <div class="cb-overlay" id="req-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
   <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="req-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('req-modal')">&#10005;</button>
@@ -328,6 +426,7 @@ function stPhoneMask(el){
     el.value=v;el.dataset.prev=v;
   });
 }
+stPhoneMask(document.getElementById('cb-phone'));
 stPhoneMask(document.getElementById('req-phone'));
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.cb-overlay.open').forEach(function(m){m.classList.remove('open');});document.body.classList.remove('modal-open');}});
 </script>
