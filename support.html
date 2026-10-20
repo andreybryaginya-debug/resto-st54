@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тарифы сопровождения — Софт Трейд</title>
+<meta name="description" content="Абонентское сопровождение iiko и касс: Базовый — бесплатно, Стандарт от 3 000 ₽, Корпоративный от 5 000 ₽ в месяц за точку. Удалённая поддержка, выезды, обновления, ЕГАИС и Честный знак. Софт Трейд.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FFFFFF;--ink:#191C1E;--ink-soft:#5A6167;--line:#E4E1DB;--signal:#E05643;--signal-dark:#C44534;--receipt:#FBFAF6}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16.5px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Unbounded',sans-serif;line-height:1.2;font-weight:600}
+header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-links{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:500;margin-left:24px}
+.nav-links a{text-decoration:none;color:var(--ink-soft);white-space:nowrap}
+.nav-dd{position:relative;display:flex;align-items:center;align-self:stretch}
+.nav-dd>a{position:relative;padding:4px 0}
+.nav-dd>a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--signal);transform:scaleX(0);transition:transform .15s}
+.nav-dd:hover>a{color:var(--signal)}
+.nav-dd:hover>a:after{transform:scaleX(1)}
+.dd-caret{font-size:14px;font-weight:700;color:var(--signal);line-height:1}
+.nav-dd-menu{position:absolute;top:calc(100% + 10px);left:-8px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 30px rgba(25,28,30,.12);padding:4px 0;min-width:230px;display:none;z-index:60}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}
+.nav-dd-menu:before{content:"";position:absolute;top:-7px;left:26px;width:12px;height:12px;background:#fff;border-left:1px solid var(--line);border-top:1px solid var(--line);transform:rotate(45deg)}
+.nav-dd-menu:after{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.nav-dd-menu a{display:block;padding:4px 18px;font-size:14px}
+.nav-dd-menu a:hover{background:#F5F7FA;color:var(--signal)}
+.nav-dd-sep{height:1px;background:var(--line);margin:4px 0}
+.nav-dd-products b{font-weight:700}
+.nav-dd-products span{color:var(--signal)}
+.nav-dd-menu button{display:block;width:100%;text-align:left;padding:4px 18px;font-size:14px;font-family:inherit;font-weight:500;color:var(--ink-soft);background:none;border:none;cursor:pointer;white-space:nowrap}
+.nav-dd-menu button:hover{background:#F5F7FA;color:var(--signal)}
+.nav-links a:hover{color:var(--ink)}
+.nav-phone{font-weight:700;text-decoration:none;font-size:15px;white-space:nowrap;margin-left:16px}
+.nav-phone{color:var(--ink)}
+.crumbs{background:#F5F7FA;font-size:13.5px;color:var(--ink-soft)}
+.crumbs .wrap{padding-top:12px}
+.crumbs a{color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--signal)}
+.crumbs span{color:var(--ink);font-weight:600}
+.crumbs i{font-style:normal;margin:0 6px}
+@media(max-width:900px){.nav-links{display:none}}
+.nav-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.nav-callback{background:none;border:none;cursor:pointer;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;color:var(--signal);text-decoration:underline;text-underline-offset:3px;padding:0;white-space:nowrap}
+.nav-callback:hover{color:var(--signal-dark)}
+.logo{text-decoration:none;display:flex;align-items:center}
+.logo-img{height:40px;width:auto;display:block}
+@media(max-width:560px){.logo-img{height:33px}}
+.back{font-size:15px;font-weight:600;color:var(--signal);text-decoration:none;white-space:nowrap}
+.back:hover{text-decoration:underline}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:inherit;font-weight:700;font-size:16px;padding:15px 26px;border-radius:6px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn-primary{background:var(--signal);color:#fff}
+.btn-primary:hover{background:var(--signal-dark)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+
+.hero{background:#F5F7FA;border-bottom:1px solid var(--line);padding:72px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(26px,3.4vw,40px);letter-spacing:-0.01em;margin-bottom:18px}
+.hero h1 .accent{color:var(--signal)}
+.hero p{font-size:18px;color:var(--ink-soft);margin-bottom:30px;max-width:520px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.price-check{background:var(--receipt);border:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:14px;padding:30px 28px 44px;position:relative;box-shadow:0 12px 30px rgba(25,28,30,.08);transform:rotate(1deg);max-width:360px;justify-self:end}
+.price-check:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:14px;background:linear-gradient(-45deg,transparent 7px,var(--receipt) 0) 0 100%/16px 14px repeat-x,linear-gradient(45deg,transparent 7px,var(--receipt) 0) 0 100%/16px 14px repeat-x}
+.price-check .head{text-align:center;font-weight:700;letter-spacing:.06em;font-size:15px}
+.price-check .div{border-top:1px dashed #C9C4B8;margin:12px 0}
+.price-check .row{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+.price-check .total{font-size:20px;font-weight:700}
+.price-check .per{font-size:12px;color:var(--ink-soft)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.price-check{justify-self:start;transform:none}}
+
+section{padding:72px 0}
+.section-title{font-size:clamp(24px,3vw,34px);margin-bottom:14px;letter-spacing:-0.01em}
+.section-lead{color:var(--ink-soft);max-width:680px;margin-bottom:44px;font-size:17.5px}
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mod{border:1px solid var(--line);border-radius:10px;padding:28px 26px;background:#fff}
+.mod .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:var(--signal);letter-spacing:.05em;margin-bottom:10px;text-transform:uppercase}
+.mod h3{font-size:19px;margin-bottom:14px}
+.mod{scroll-margin-top:84px}
+.mod-nav{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:4px 0 16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--signal)}
+.mod-nav a{color:var(--signal);text-decoration:none}
+.mod-nav a:hover{text-decoration:underline}
+.mod-nav span{color:var(--line)}
+.mod ul{list-style:none}
+.mod li{font-size:15px;color:var(--ink-soft);padding:4px 0 4px 18px;position:relative;line-height:1.5}
+.mod li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--signal)}
+.mod .extra{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--ink-soft)}
+.mod .extra b{color:var(--ink);font-weight:700}
+@media(max-width:800px){.mod-grid{grid-template-columns:1fr}}
+
+.cta{background:#FFF4F0;padding:64px 0}
+.cta .inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cta h2{font-size:clamp(22px,2.8vw,30px);max-width:560px}
+.cta p{color:#4E4E4E;margin-top:8px;max-width:560px}
+footer{padding:26px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
+.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--ink-soft)}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+/* окно «Оставить заявку» (как на главной) */
+.cb-overlay{position:fixed;inset:0;background:rgba(25,28,30,.5);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.cb-overlay.open{display:flex}
+.cb-card{background:#fff;border-radius:10px;padding:32px 30px;max-width:400px;width:100%;position:relative;box-shadow:0 20px 60px rgba(25,28,30,.25)}
+.cb-card h3{font-size:22px;margin-bottom:10px}
+.cb-card>p{color:var(--ink-soft);font-size:15px;margin-bottom:22px}
+.cb-close{position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;font-size:18px;color:var(--ink-soft);padding:6px;line-height:1}
+.cb-close:hover{color:var(--ink)}
+form .field{margin-bottom:16px}
+form label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--ink-soft)}
+form label.req:after{content:" *";color:var(--signal)}
+form input,form textarea{width:100%;padding:14px 16px;border-radius:6px;border:1px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;font-size:16px}
+form textarea{resize:vertical;min-height:84px;line-height:1.45}
+form input::placeholder,form textarea::placeholder{color:#A3A8AD}
+form input:focus,form textarea:focus{outline:2px solid var(--signal);border-color:transparent}
+form .btn{width:100%;justify-content:center;margin-top:8px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13.5px;line-height:1.5;color:#4E4E4E;cursor:pointer}
+.consent input{width:17px;height:17px;flex:none;margin-top:2px;accent-color:#4E4E4E;cursor:pointer}
+.consent a{color:var(--signal);text-decoration:none;font-weight:600}
+.consent a:hover{text-decoration:underline}
+/* карточки раздела (как на главной) */
+.srv-more{margin-top:auto;padding:14px 0 0;align-self:flex-start;background:none;border:none;cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:700;color:var(--signal)}
+.srv-more:hover{text-decoration:underline}
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:14px}
+.pf{border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;background:#FFFFFF}
+.pf-img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pf-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.pf h3{font-size:18px;margin-bottom:6px}
+.pf-lead{color:var(--ink);font-size:15px;font-weight:600;margin-bottom:10px}
+.pf ul{list-style:none;margin:0 0 6px}
+.pf li{font-size:14.5px;color:var(--ink-soft);padding:3px 0 3px 18px;position:relative;line-height:1.45}
+.pf li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--signal)}
+.pf-src{font-size:12px;color:var(--ink-soft);margin-top:14px}
+/* чеки с ценами (как на главной) */
+.tariffs{background:#E5F1EC}
+.tar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+.receipt{background:var(--receipt);border:1px solid var(--line);font-family:'JetBrains Mono',monospace;padding:28px 24px 42px;position:relative;font-size:13.5px;box-shadow:0 10px 24px rgba(25,28,30,.07)}
+.receipt:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:14px;background:
+  linear-gradient(-45deg,transparent 7px,var(--receipt) 0) 0 100%/16px 14px repeat-x,
+  linear-gradient(45deg,transparent 7px,var(--receipt) 0) 0 100%/16px 14px repeat-x}
+.receipt .r-head{text-align:center;font-weight:700;font-size:15px;letter-spacing:.08em;margin-bottom:4px}
+.receipt .r-sub{text-align:center;color:var(--ink-soft);margin-bottom:14px}
+.receipt .div{border-top:1px dashed #C9C4B8;margin:12px 0}
+.receipt .row{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.receipt .total{font-size:19px;font-weight:700}
+.receipt .per{font-size:12px;color:var(--ink-soft)}
+.receipt .btn{width:100%;justify-content:center;margin-top:18px;font-family:'Manrope',sans-serif}
+.receipt.featured{outline:2px solid var(--signal);outline-offset:-1px}
+.receipt .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--signal);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:12px;padding:4px 12px;border-radius:20px;white-space:nowrap}
+@media(max-width:900px){.tar-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+.tar-grid-2{grid-template-columns:1fr 1fr;max-width:860px;margin:0 auto}
+@media(max-width:900px){.tar-grid-2{grid-template-columns:1fr;max-width:420px}}
+.receipt .row span:last-child{white-space:nowrap}
+.receipt .btn{margin-top:14px}
+.cmp-note{font-size:13px;color:var(--ink-soft);margin-top:18px;text-align:center}
+.cmp-note a{color:var(--signal)}
+.pf .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--signal);margin-bottom:10px}
+.pf{scroll-margin-top:84px}
+a.srv-more{text-decoration:none}
+/* плитки решений с фото (как продукты) */
+.pf-photo{position:relative;overflow:hidden;height:100%;min-height:440px;border-color:transparent;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6);background:#3A3F45 center/cover no-repeat}
+.pf-photo:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04) 35%,rgba(0,0,0,.66))}
+.pf-face{position:relative;margin-top:auto;padding:22px 24px 24px;display:flex;flex-direction:column;align-items:flex-start}
+.pf-face .tag,.pf-face .srv-more{color:#fff}
+.pf-face h3{margin-bottom:0}
+.pf-face .srv-more{margin-top:12px;padding-top:0}
+.pf-detail{position:absolute;inset:0;background:#fff;opacity:0;visibility:hidden;transition:opacity .2s;color:var(--ink);text-shadow:none;z-index:2;overflow:auto}
+.pf-detail li{font-size:14px;padding:2px 0 2px 18px}
+.pf-detail .pf-lead{font-size:14.5px}
+.pf-photo:hover .pf-detail,.pf-photo:focus-within .pf-detail{opacity:1;visibility:visible}
+body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
+.services-tint .pf.bg-products{background-image:url(img/sol-products-card.jpg)}
+.services-tint .pf.bg-tools{background-image:url(img/sol-tools-card.jpg)}
+.services-tint .pf.bg-egais{background-image:url(img/sol-egais-card.jpg)}
+.services-tint .pf.bg-edo{background-image:url(img/sol-edo-card.jpg)}
+.services-tint .pf.bg-ai{background-image:url(img/sol-ai-card.jpg)}
+/* окна «Подробнее» (как в products.html) */
+.srv-more{margin-top:auto;padding:14px 0 0;align-self:flex-start;background:none;border:none;cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:700;color:var(--signal)}
+.srv-more:hover{text-decoration:underline}
+.cb-card.cb-wide{max-width:680px;max-height:90vh;overflow:auto;padding:36px 36px 32px}
+.cb-wide .tag{display:inline-block;font-size:13px;font-weight:700;color:var(--signal);margin-bottom:8px}
+.cb-wide h3{font-size:24px;margin-bottom:12px;padding-right:28px}
+.cb-wide>p{color:var(--ink-soft);font-size:15.5px;line-height:1.55;margin-bottom:18px}
+.cb-wide h4{font-size:15px;margin:18px 0 6px}
+.cb-wide ul{list-style:none;margin:0 0 4px}
+.cb-wide li{font-size:15px;color:var(--ink-soft);padding:3px 0 3px 18px;position:relative;line-height:1.5}
+.cb-wide li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--signal)}
+.cb-wide .btn{margin-top:22px}
+.cb-card.cb-split{max-width:920px}
+.mod-body{display:grid;grid-template-columns:1fr 272px;gap:8px 32px;align-items:start}
+.mod-text h4:first-child{margin-top:0}
+.mod-pics{display:flex;flex-direction:column;gap:16px;padding-top:4px}
+.mod-pics figure{margin:0}
+.mod-pics svg,.mod-pics img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.mod-pics figcaption{font-size:12.5px;line-height:1.4;color:var(--ink-soft);margin-top:6px}
+.mod-pics-src{font-size:11.5px;color:var(--ink-soft);opacity:.8}
+@media(max-width:760px){.mod-body{grid-template-columns:1fr}.mod-pics{flex-direction:row;flex-wrap:wrap;gap:12px}.mod-pics figure{flex:1 1 180px}}
+@media(max-width:900px){.pf-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pf-grid{grid-template-columns:1fr}}
+.services-tint{background:#E5EDF4}
+.services-tint .pf{border-color:#B8C6D4}
+.hero p{max-width:720px;margin-bottom:0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Софт Трейд — на главную">
+      <svg class="logo-img" role="img" aria-label="Софт Трейд — системы автоматизации" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 271.42 51.88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        fill: #E05643;
+      }
+    </style>
+    <clipPath id="clip-path" transform="translate(-277.07 -262.33)">
+      <rect class="cls-1" width="841.89" height="595.28"/>
+    </clipPath>
+  </defs>
+  <g class="cls-2">
+    <path d="M330.66,276.28c0-8.33,5.12-13.92,13.21-13.92,6.26,0,10.75,3.75,11.65,9.54h-4.65a7.06,7.06,0,0,0-7.19-5.59c-5.2,0-8.4,4.11-8.4,10s3.13,10,8.29,10a7,7,0,0,0,7.27-5.59h4.65c-.86,5.78-5.51,9.54-11.88,9.54-8,0-12.94-5.51-12.94-13.92" transform="translate(-277.07 -262.33)"/>
+    <path d="M357.83,280c0-6.1,4.11-10.24,10.2-10.24s10.2,4.14,10.2,10.24S374.13,290.2,368,290.2s-10.2-4.1-10.2-10.24m16.11,0c0-3.87-2.35-6.65-5.9-6.65s-5.86,2.78-5.86,6.65,2.31,6.65,5.86,6.65,5.9-2.78,5.9-6.65" transform="translate(-277.07 -262.33)"/>
+    <path d="M392,297.78v-7.66c-6.92-.23-11.3-4.11-11.3-10.16s4.42-9.89,11.3-10.17v-6.57h4.14v6.57c6.92.27,11.3,4.11,11.3,10.17s-4.42,9.93-11.3,10.16v7.66Zm0-24.43c-4.38.16-7.08,2.62-7.08,6.61s2.7,6.45,7.08,6.61Zm4.07,13.21c4.42-.16,7-2.58,7-6.61s-2.62-6.45-7-6.61Z" transform="translate(-277.07 -262.33)"/>
+    <polygon points="137.63 27.64 137.63 11.34 130.82 11.34 130.82 7.62 148.65 7.62 148.65 11.34 141.85 11.34 141.85 27.64 137.63 27.64"/>
+    <polygon points="159.44 0.27 180.82 0.27 180.82 4.26 172.37 4.26 172.37 27.64 167.88 27.64 167.88 4.26 159.44 4.26 159.44 0.27"/>
+    <path d="M478.84,280c0,6.18-4,10.24-9.46,10.24a7.51,7.51,0,0,1-6.49-3v10.63h-4.22V269.95h3.67l.51,3a7.83,7.83,0,0,1,6.53-3.2c5.47,0,9.46,3.83,9.46,10.24m-4.3,0c0-3.95-2.35-6.65-5.86-6.65s-5.83,2.7-5.83,6.57,2.31,6.76,5.83,6.76,5.86-2.78,5.86-6.69" transform="translate(-277.07 -262.33)"/>
+    <path d="M481.3,280c0-6.18,3.95-10.28,9.85-10.28s9.66,3.67,9.77,9.54a11.51,11.51,0,0,1-.12,1.6H485.72v.27c.12,3.4,2.27,5.63,5.59,5.63,2.58,0,4.46-1.29,5-3.52h4.22c-.7,3.95-4.06,7-9,7-6.29,0-10.24-4.07-10.24-10.2m15.25-2.23a5,5,0,0,0-5.36-4.65,5.17,5.17,0,0,0-5.32,4.65Z" transform="translate(-277.07 -262.33)"/>
+    <path d="M504.13,290v-20h4.1v13.88L519,269.95h3.71v20h-4.11V276L507.8,290Zm3.21-27.64h3.24c0,1.8.78,2.89,2.81,2.89s2.89-1.1,2.89-2.89h3.24c-.08,3.6-2.35,5.51-6.18,5.51s-5.94-1.92-6-5.51" transform="translate(-277.07 -262.33)"/>
+    <path d="M545.25,286.25h3.24v9h-4.14V290H529.07v5.28h-4.14v-9H527c1.41-.94,2.15-2.31,2.15-8.05v-8.25h16.11Zm-4.22,0V273.66h-7.9v5c0,4-.47,6.14-1.37,7.58Z" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M310.43,273H297.49v-4h7.41a1.26,1.26,0,0,0,1.26-1.26v-4.13a1.26,1.26,0,0,0-1.26-1.26H285.69a1.26,1.26,0,0,0-1.26,1.26v4.13a1.26,1.26,0,0,0,1.26,1.26h8v4H280.15a3.08,3.08,0,0,0-3.08,3.08v19.82a3.08,3.08,0,0,0,3.08,3.08h30.28a3.08,3.08,0,0,0,3.08-3.08V276.11a3.08,3.08,0,0,0-3.08-3.08M287,264.6h16.52v2.24H287ZM309,294.2H281.63V277.84H309Z" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M279.47,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M283.63,304.68H282a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M279.47,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M283.63,308.86H282a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M287.73,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M291.84,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M287.73,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M291.84,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M296,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73H296a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M300.29,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M296,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73H296a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M300.29,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M304.53,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M304.53,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M308.67,304.68H307a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M312.78,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M308.67,308.86H307a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M312.78,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M283.63,313H282a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M287.73,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M291.84,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M295.94,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M300.29,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M304.53,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M308.67,313H307a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+  </g>
+<text x="162.5" y="50.2" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#828282" letter-spacing="1.1">Системы автоматизации</text>
+</svg>
+    </a>
+    <nav class="nav-links" aria-label="Разделы">
+      <div class="nav-dd">
+        <a href="formats.html">Автоматизируем <span class="dd-caret">▾</span></a>
+        <div class="nav-dd-menu">
+          <a href="restaurant.html">Рестораны</a>
+          <a href="coffee.html">Кофейни и пекарни</a>
+          <a href="bar.html">Бары и пабы</a>
+          <a href="canteen.html">Столовые</a>
+          <a href="cafe.html">Кафе</a>
+          <a href="delivery.html">Доставка и dark kitchen</a>
+          <a href="fastfood.html">Фастфуд</a>
+          <a href="kiosk.html">Киоски и стритфуд</a>
+          <a href="chain.html">Сети заведений</a>
+        </div>
+      </div>
+      <div class="nav-dd">
+        <a href="solutions.html">Решения <span class="dd-caret">▾</span></a>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-products" href="products.html"><b>Продукты</b> <span>iiko</span></a>
+          <a href="profit.html">Инструменты</a>
+          <a href="solutions.html#egais">Инвентаризация ЕГАИС</a>
+          <a href="solutions.html#edo">Документооборот (ЭДО)</a>
+          <a href="solutions.html#ai">ИИ-ассистент для iiko</a>
+        </div>
+      </div>
+      <div class="nav-dd">
+        <a href="services.html">Услуги и цены <span class="dd-caret">▾</span></a>
+        <div class="nav-dd-menu">
+          <a href="iikocloud.html">Тарифы iikoCloud</a>
+          <a href="support.html">Тарифы сопровождения</a>
+          <a href="cto.html">ЦТО кассы и сервис</a>
+          <a href="training.html">Обучение</a>
+          <a href="audit.html">Аудит</a>
+          <a href="gov.html">Госсистемы / ЕГАИС / ЧЗ / Меркурий</a>
+        </div>
+      </div>
+      <a href="equipment.html">Оборудование</a>
+      <a href="faq.html">Вопросы</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+73833830110">+7 (383) 383-01-10</a>
+      <button class="nav-callback" type="button" onclick="stOpen('cb-modal')">Заказать звонок</button>
+    </div>
+  </div>
+</header>
+
+<nav class="crumbs" aria-label="Вы здесь"><div class="wrap"><a href="index.html">Главная</a><i>/</i><a href="services.html">Услуги и цены</a><i>/</i><span>Тарифы сопровождения</span></div></nav>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Тарифы <span class="accent">сопровождения</span></h1>
+    <p>Берём заведение на обслуживание после запуска: отвечаем на вопросы, чиним, обновляем и следим за госсистемами. Три тарифа — от бесплатного базового до корпоративного с персональным инженером.</p>
+  </div>
+</section>
+
+<section id="why" class="services-tint">
+  <div class="wrap">
+    <h2 class="section-title">Что такое сопровождение</h2>
+    <p class="section-lead">Заведение не может ждать: если касса встала, гости уходят. Сопровождение — это инженер на связи, который решает вопросы по iiko и кассам, пока вы работаете.</p>
+    <div class="pf-grid">
+      <article class="pf">
+        <div class="pf-body">
+          <span class="tag">Поддержка</span>
+          <h3>Удалённо и на выезде</h3>
+          <p class="pf-lead">Большинство вопросов решаем удалённо за минуты, без визита в заведение.</p>
+          <ul>
+            <li>Сбои кассы, принтеров, кухонного экрана и обмена с облаком.</li>
+            <li>Настройки iiko: меню, цены, права, отчёты.</li>
+            <li>Если без выезда не обойтись, приедет инженер; в «Корпоративном» выезды без ограничений.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="pf">
+        <div class="pf-body">
+          <span class="tag">Обновления и закон</span>
+          <h3>iiko всегда актуальна</h3>
+          <p class="pf-lead">Обновляем систему и следим, чтобы касса соответствовала требованиям.</p>
+          <ul>
+            <li>Обновления iiko и плагинов без простоя заведения.</li>
+            <li>ЕГАИС, «Честный знак», ОФД: настройка и контроль обмена.</li>
+            <li>Фискальный накопитель и прошивки ККТ вовремя.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="pf">
+        <div class="pf-body">
+          <span class="tag">Для сетей</span>
+          <h3>Персональный инженер и SLA</h3>
+          <p class="pf-lead">Для сетей и фабрик-кухонь — свой инженер, который знает ваши точки.</p>
+          <ul>
+            <li>Время реакции и решения закреплены в договоре.</li>
+            <li>Подменное оборудование на время ремонта.</li>
+            <li>Обучение новых сотрудников и аудит учёта раз в квартал.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="tariffs" class="tariffs">
+  <div class="wrap">
+    <h2 class="section-title">Тарифы сопровождения</h2>
+    <p class="section-lead">Честные цены сразу на сайте — без «оставьте телефон, и менеджер всё расскажет».</p>
+    <div class="tar-grid">
+      <div class="receipt">
+        <div class="r-head">БАЗОВЫЙ</div>
+        <div class="r-sub">для небольших заведений</div>
+        <div class="div"></div>
+        <div class="row"><span>Удалённая поддержка</span><span>✓</span></div>
+        <div class="row"><span>Часы работы</span><span>ежедневно 8–23</span></div>
+        <div class="row"><span>Обновления iiko</span><span>✓</span></div>
+        <div class="row"><span>Обеспечение работоспособности</span><span>✓</span></div>
+        <div class="row"><span>Консультации</span><span>по тарифу</span></div>
+        <div class="row"><span>Выезд инженера</span><span>по тарифу</span></div>
+        <div class="div"></div>
+        <div class="row total"><span>ИТОГО</span><span>бесплатно</span></div>
+        <div class="per">в месяц за точку</div>
+        <button class="btn btn-ghost" type="button" onclick="stOpen('req-modal')">Подключить</button>
+      </div>
+      <div class="receipt featured">
+        <span class="badge">Выбирают чаще всего</span>
+        <div class="r-head">СТАНДАРТ</div>
+        <div class="r-sub">для активных заведений</div>
+        <div class="div"></div>
+        <div class="row"><span>Удалённая поддержка</span><span>✓</span></div>
+        <div class="row"><span>Часы работы</span><span>24/7</span></div>
+        <div class="row"><span>Обновления iiko</span><span>✓</span></div>
+        <div class="row"><span>Приоритет заявок</span><span>✓</span></div>
+        <div class="row"><span>Выезды инженера</span><span>по тарифу</span></div>
+        <div class="row"><span>ЕГАИС, ЧЗ</span><span>по тарифу</span></div>
+        <div class="row"><span>Консультации</span><span>✓</span></div>
+        <div class="div"></div>
+        <div class="row total"><span>ИТОГО</span><span>от 3 000 ₽</span></div>
+        <div class="per">в месяц за точку</div>
+        <button class="btn btn-primary" type="button" onclick="stOpen('req-modal')">Подключить</button>
+      </div>
+      <div class="receipt">
+        <div class="r-head">КОРПОРАТИВНЫЙ</div>
+        <div class="r-sub">для сетей и фабрик-кухонь</div>
+        <div class="div"></div>
+        <div class="row"><span>Поддержка</span><span>24/7</span></div>
+        <div class="row"><span>Персональный инженер</span><span>✓</span></div>
+        <div class="row"><span>Выезды</span><span>безлимит</span></div>
+        <div class="row"><span>Подменное оборудование</span><span>✓</span></div>
+        <div class="row"><span>Обучение новичков</span><span>✓</span></div>
+        <div class="row"><span>Аудит учёта</span><span>ежеквартально</span></div>
+        <div class="row"><span>SLA по договору</span><span>✓</span></div>
+        <div class="div"></div>
+        <div class="row total"><span>ИТОГО</span><span>от 5 000 ₽</span></div>
+        <div class="per">в месяц за точку</div>
+        <div class="per">рассчитаем под ваше заведение</div>
+        <button class="btn btn-ghost" type="button" onclick="stOpen('req-modal')">Обсудить</button>
+      </div>
+    </div>
+    <p class="cmp-note">Цены ориентировочные: итоговая стоимость зависит от числа касс и точек. Разовые работы по кассам — на странице <a href="cto.html">«ЦТО кассы и сервис»</a>.</p>
+  </div>
+</section>
+
+
+
+<section class="cta">
+  <div class="wrap inner">
+    <div>
+      <h2>Не знаете, какой тариф подойдёт?</h2>
+      <p>Расскажите о заведении и числе касс — подскажем тариф и посчитаем стоимость.</p>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stOpen('req-modal')">Оставить заявку</button>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Софт Трейд. Официальный дилер iiko.</span>
+    <span><a href="index.html">resto.st54.ru</a> · <a href="https://www.st54.ru" target="_blank" rel="noopener">st54.ru</a></span>
+  </div>
+</footer>
+
+<div class="cb-overlay" id="cb-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="cb-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('cb-modal')">&#10005;</button>
+    <h3 id="cb-title">Заказать звонок</h3>
+    <p>Оставьте номер — перезвоним в рабочее время и ответим на все вопросы.</p>
+    <form action="#" method="post" onsubmit="event.preventDefault();alert('Форма пока не подключена к отправке — подключим на этапе публикации.');">
+      <div class="field">
+        <label for="cb-name" class="req">Как к вам обращаться</label>
+        <input id="cb-name" name="name" type="text" required autocomplete="name" pattern=".*\S.*" title="Укажите имя">
+      </div>
+      <div class="field">
+        <label for="cb-phone" class="req">Телефон</label>
+        <input id="cb-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите 10 цифр номера после +7">
+      </div>
+      <div class="field">
+        <label for="cb-comment">Комментарий</label>
+        <textarea id="cb-comment" name="comment" maxlength="640" rows="3" placeholder="Что хотите обсудить (необязательно)"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Жду звонка</button>
+      <label class="consent"><input type="checkbox" checked required><span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="agreement.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+    </form>
+  </div>
+</div>
+<div class="cb-overlay" id="req-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="req-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('req-modal')">&#10005;</button>
+    <h3 id="req-title">Оставить заявку</h3>
+    <p>Оставьте ваши контакты и мы свяжемся с вами в ближайшее время.</p>
+    <form action="#" method="post" onsubmit="event.preventDefault();alert('Форма пока не подключена к отправке — подключим на этапе публикации.');">
+      <div class="field">
+        <label for="req-name" class="req">Как к вам обращаться</label>
+        <input id="req-name" name="name" type="text" required autocomplete="name" pattern=".*\S.*" title="Укажите имя">
+      </div>
+      <div class="field">
+        <label for="req-phone" class="req">Телефон</label>
+        <input id="req-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите 10 цифр номера после +7">
+      </div>
+      <div class="field">
+        <label for="req-comment">Комментарий</label>
+        <textarea id="req-comment" name="comment" maxlength="640" rows="3" placeholder="Что хотите обсудить (необязательно)"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Отправить заявку</button>
+      <label class="consent"><input type="checkbox" checked required><span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="agreement.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+    </form>
+  </div>
+</div>
+<script>
+function stOpen(id){document.getElementById(id).classList.add('open');document.body.classList.add('modal-open');}
+function stClose(id){document.getElementById(id).classList.remove('open');document.body.classList.remove('modal-open');}
+/* маска телефона +7 (___) ___-__-__ */
+function stPhoneFormat(d){var r='+7 (';if(d.length)r+=d.slice(0,3);if(d.length>3)r+=') '+d.slice(3,6);if(d.length>6)r+='-'+d.slice(6,8);if(d.length>8)r+='-'+d.slice(8,10);return r;}
+function stPhoneMask(el){
+  el.addEventListener('focus',function(){if(!el.value)el.value='+7 (';});
+  el.addEventListener('blur',function(){if(el.value==='+7 (')el.value='';});
+  el.addEventListener('input',function(e){
+    var d=el.value.replace(/\D/g,'');if(el.value.indexOf('+7')===0)d=d.slice(1);if(d.length>10&&(d[0]==='7'||d[0]==='8'))d=d.slice(1);d=d.slice(0,10);
+    var v=stPhoneFormat(d);
+    if(e.inputType==='deleteContentBackward'&&v===el.dataset.prev){d=d.slice(0,-1);v=stPhoneFormat(d);}
+    el.value=v;el.dataset.prev=v;
+  });
+}
+stPhoneMask(document.getElementById('cb-phone'));
+stPhoneMask(document.getElementById('req-phone'));
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.cb-overlay.open').forEach(function(m){m.classList.remove('open');});document.body.classList.remove('modal-open');}});
+</script>
+</body>
+</html>
