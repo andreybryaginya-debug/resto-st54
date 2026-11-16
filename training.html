@@ -24,7 +24,7 @@ header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:bl
 .nav-dd>a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--signal);transform:scaleX(0);transition:transform .15s}
 .nav-dd:hover>a{color:var(--signal)}
 .nav-dd:hover>a:after{transform:scaleX(1)}
-.nav-dd>a[href="formats.html"]{padding:4px 10px;margin:0 -10px;border-radius:8px;transition:background .15s,color .15s}.nav-dd>a[href="formats.html"]:after{display:none}.nav-dd:hover>a[href="formats.html"]{background:#FFF1EC}
+.nav-dd>a{padding:4px 10px;margin:0 -10px;border-radius:8px;transition:background .15s,color .15s}.nav-dd>a:after{display:none}.nav-dd:hover>a{background:#FFF1EC}
 .dd-caret{font-size:14px;font-weight:700;color:var(--signal);line-height:1}
 .nav-dd-menu{position:absolute;top:calc(100% + 10px);left:-8px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 30px rgba(25,28,30,.12);padding:4px 0;min-width:230px;display:none;z-index:60}
 .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}
@@ -268,13 +268,13 @@ a.srv-more{text-decoration:none}
       </div>
       <div class="nav-dd">
         <a href="services.html">Услуги и цены <span class="dd-caret">▾</span></a>
-        <div class="nav-dd-menu">
-          <a href="iikocloud.html">Тарифы iikoCloud</a>
-          <a href="support.html">Тарифы сопровождения</a>
-          <a href="cto.html">ЦТО кассы и сервис</a>
-          <a href="training.html">Обучение</a>
-          <a href="audit.html">Аудит</a>
-          <a href="gov.html">Госсистемы / ЕГАИС / ЧЗ / Меркурий</a>
+        <div class="nav-dd-menu nav-dd-ico">
+          <a href="iikocloud.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4.500 4.500 0 0 1-.600-8.960A6 6 0 0 1 18 9.500a4.250 4.250 0 0 1-.500 8.500z"/><path class="ac" d="M10.500 16v-5h2.200a1.500 1.500 0 0 1 0 3H9.500M9.500 15.200h3"/></svg>Тарифы iikoCloud</a>
+          <a href="support.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.500"/><rect x="17" y="13" width="4" height="6" rx="1.500"/><path class="ac" d="M19 19c0 1.500-1.500 2.500-4 2.500h-2"/></svg>Тарифы сопровождения</a>
+          <a href="cto.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h10v9H4zM6 11V5h6v6M7 14h4M7 17h2"/><path class="ac" d="M15.500 13.500l4.500-4.500a1.800 1.800 0 0 0-2.500-2.500L13 11M19.500 16l1.500 1.500-2 2-1.500-1.500"/></svg>ЦТО кассы и сервис</a>
+          <a href="training.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.500 9L12 4.500 21.500 9 12 13.500z"/><path d="M6.500 11v4.500c1.500 1.500 3.500 2 5.500 2s4-.5 5.500-2V11"/><path class="ac" d="M21.500 9v5"/></svg>Обучение</a>
+          <a href="audit.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h5M8 7.500h6M8 10.500h4"/><circle class="ac" cx="15.500" cy="15" r="3.500"/><path class="ac" d="M18 17.500l3 3"/></svg>Аудит</a>
+          <a href="gov.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M4.500 9.500h15M12 3l8 4.500H4zM6.500 9.500v8M10 9.500v8M14 9.500v8M17.500 9.500v8"/><path class="ac" d="M10.500 6.500h3"/></svg>Госсистемы / ЕГАИС / ЧЗ / Меркурий</a>
         </div>
       </div>
       <a href="equipment.html">Оборудование</a>
