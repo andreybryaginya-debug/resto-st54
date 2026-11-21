@@ -168,7 +168,9 @@ form .btn{width:100%;justify-content:center;margin-top:8px}
 .cmp-note{font-size:13px;color:var(--ink-soft);margin-top:18px;text-align:center}
 /* оборудование (как было на главной) */
 .eq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.eq{border:1px solid var(--line);border-radius:8px;padding:24px 22px}
+.eq{border:1px solid var(--line);border-radius:8px;padding:24px 22px;overflow:hidden}
+.eq-ph{display:block;margin:-12px -10px 18px;background:#F5F7FA}
+.eq-pic{display:block;width:100%;max-width:none;aspect-ratio:5/3;object-fit:contain;mix-blend-mode:multiply}
 .eq h3{font-size:16.5px;margin-bottom:8px}
 .eq p{font-size:14.5px;color:var(--ink-soft)}
 .eq .price{font-weight:700;margin-top:12px;font-size:15px}
@@ -224,6 +226,8 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
 .services-tint{background:#E5EDF4}
 .services-tint .pf{border-color:#B8C6D4}
 .hero p{max-width:720px;margin-bottom:0}
+.hero p.hero-2l{max-width:none}
+.hero p a{color:var(--signal);font-weight:600}
 </style>
 </head>
 <body>
@@ -341,21 +345,21 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
 <section class="hero">
   <div class="wrap">
     <h1>POS-оборудование <span class="accent">со склада</span></h1>
-    <p>Подбираем комплект под бюджет и формат заведения, поставляем со своего склада, подключаем к iiko и обслуживаем сами. Ниже — основные категории, полный каталог с ценами в интернет-магазине st54.ru.</p>
+    <p class="hero-2l">Подбираем комплект под бюджет и формат заведения, поставляем со своего склада, подключаем к iiko и обслуживаем сами.<br>Ниже — основные категории, полный каталог с ценами в интернет-магазине <a href="https://www.st54.ru/catalog/" target="_blank" rel="noopener">st54.ru</a>.</p>
   </div>
 </section>
 
 <section id="equipment" class="services-tint">
   <div class="wrap">
     <h2 class="section-title">Что поставляем</h2>
-    <p class="section-lead">Всё, что нужно для работы кассы и кухни: от терминала до денежного ящика. С подключением и гарантией.</p>
+    <p class="section-lead">Всё, что нужно для работы кассы и кухни: от терминала до денежного ящика.<br>С подключением и гарантией.</p>
     <div class="eq-grid">
-      <div class="eq"><h3>POS-терминалы и моноблоки</h3><p>Сенсорные рабочие места кассира и официанта, устойчивые к жиру, влаге и интенсивной работе.</p><div class="price">от — ₽</div></div>
-      <div class="eq"><h3>Фискальные регистраторы</h3><p>Онлайн-кассы под 54-ФЗ с фискальными накопителями и подключением к ОФД.</p><div class="price">от — ₽</div></div>
-      <div class="eq"><h3>Принтеры чеков и этикеток</h3><p>Печать чеков, сервис-чеков на кухню и этикеток для доставки и маркировки.</p><div class="price">от — ₽</div></div>
-      <div class="eq"><h3>Сканеры штрихкода</h3><p>Для приёмки товара, работы с маркировкой и ЕГАИС.</p><div class="price">от — ₽</div></div>
-      <div class="eq"><h3>Кухонные экраны</h3><p>Заказы на кухне без бумаги: повар видит очередь, зал видит готовность.</p><div class="price">от — ₽</div></div>
-      <div class="eq"><h3>Весы и денежные ящики</h3><p>Порционные и торговые весы, денежные ящики и другая POS-периферия.</p><div class="price">от — ₽</div></div>
+      <div class="eq"><span class="eq-ph"><img class="eq-pic" src="img/eq-pos.jpg" alt="POS-моноблок" loading="lazy"></span><h3>POS-терминалы и моноблоки</h3><p>Сенсорные рабочие места кассира и официанта, устойчивые к жиру, влаге и интенсивной работе.</p><div class="price">от 40 000 ₽</div></div>
+      <div class="eq"><span class="eq-ph"><img class="eq-pic" src="img/eq-fr.jpg" alt="Фискальный регистратор" loading="lazy"></span><h3>Фискальные регистраторы</h3><p>Онлайн-кассы под 54-ФЗ с фискальными накопителями и подключением к ОФД.</p><div class="price">от 25 000 ₽</div></div>
+      <div class="eq"><span class="eq-ph"><img class="eq-pic" src="img/eq-printer.jpg" alt="Принтер чеков" loading="lazy"></span><h3>Принтеры чеков</h3><p>Чековые принтеры для кассы: лента 57 или 80 мм, подключение по USB, Ethernet или Bluetooth, модели с автоотрезчиком.</p><div class="price">от 8 000 ₽</div></div>
+      <div class="eq"><span class="eq-ph"><img class="eq-pic" src="img/eq-scanner.jpg" alt="Сканер штрихкода" loading="lazy"></span><h3>Сканеры штрихкода</h3><p>Для приёмки товара, работы с маркировкой и ЕГАИС.</p><div class="price">от 4 000 ₽</div></div>
+      <div class="eq"><span class="eq-ph"><img class="eq-pic" src="img/eq-label.jpg" alt="Принтер этикеток" loading="lazy"></span><h3>Принтеры штрихкода и этикеток</h3><p>Термо- и термотрансферные модели для самоклеящихся этикеток: маркировка продукции, ценники и штрихкоды.</p><div class="price">от 9 000 ₽</div></div>
+      <div class="eq"><span class="eq-ph"><img class="eq-pic" src="img/eq-scales.jpg" alt="Торговые весы и денежный ящик" loading="lazy"></span><h3>Весы и денежные ящики</h3><p>Порционные и торговые весы, денежные ящики и другая POS-периферия.</p><div class="price">от 3 900 ₽</div></div>
     </div>
     <p class="eq-note">Нужна конкретная модель? Полный каталог с ценами — в нашем интернет-магазине <a href="https://www.st54.ru/catalog/pos_sistemy/" target="_blank" rel="noopener">st54.ru</a>. Или напишите нам — подберём комплект за вас.</p>
   </div>
