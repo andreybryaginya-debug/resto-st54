@@ -22,7 +22,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-section[id],div[id].trust{scroll-margin-top:84px}
+section[id],div[id].trust{scroll-margin-top:100px}
 body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
 h1,h2,h3{font-family:'Unbounded',sans-serif;line-height:1.15;font-weight:600}
 img{max-width:100%}
@@ -35,6 +35,10 @@ section{padding:88px 0}
 /* Header */
 header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+@media(min-width:901px){.nav{height:84px}}
+.nav-mail{font-size:13.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;white-space:nowrap;line-height:1.3}
+.nav-mail:hover{color:var(--signal)}
+@media(max-width:900px){.nav-mail{display:none}}
 .logo{text-decoration:none;display:flex;align-items:center}
 .logo-img{height:40px;width:auto;display:block}
 @media(max-width:560px){.logo-img{height:33px}}
@@ -81,10 +85,11 @@ header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:bl
 
 /* Hero */
 .hero{padding:96px 0 72px;border-bottom:1px solid var(--line);background:#F5F7FA}
-.hero-text{position:relative;padding:26px 32px;margin:-26px -32px;border-radius:18px;background:rgba(255,255,255,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.55)}
+.hero-text{position:relative;padding:26px 32px;margin:-26px -32px}
+@media(max-width:900px){.hero-text{padding:0;margin:0}}
 
 .hero-grid{display:grid;grid-template-columns:minmax(0,520px) 1fr;gap:44px;align-items:center}
-.hero h1{font-size:clamp(22px,2.1vw,26px);line-height:1.2;letter-spacing:-0.015em;margin-bottom:16px}
+.hero h1{font-size:clamp(26px,2.6vw,33px);line-height:1.2;letter-spacing:-0.015em;margin-bottom:16px}
 .hero h1 .accent{color:var(--signal)}
 .hero p{font-size:18px;color:var(--ink);margin-bottom:24px;max-width:520px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
@@ -279,11 +284,11 @@ details .a{padding:0 0 22px;color:var(--ink-soft);max-width:760px}
 .hero-slide.is-on{opacity:1;visibility:visible}
 .hero-kicker{display:flex;align-items:center;gap:9px;font-size:15px!important;font-weight:600;color:var(--ink-soft)!important;margin-bottom:14px!important}
 .hero-kicker svg{width:20px;height:20px;flex:0 0 20px;fill:none;stroke:var(--signal);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.hero-h{font-size:clamp(28px,3vw,40px);letter-spacing:-0.015em;margin-bottom:16px}
+.hero-h{font-size:clamp(26px,2.6vw,33px);line-height:1.2;letter-spacing:-0.015em;margin-bottom:16px}
 .hero-h .accent{color:var(--signal)}
-#hero-s2 .hero-text p+p:not(.hero-kicker){margin-top:-14px}
-#hero-s2 .hero-text,#hero-s3 .hero-text{min-height:400px;display:flex;flex-direction:column;justify-content:center}
-#hero-s3 .hero-text p+p:not(.hero-kicker){margin-top:-14px}
+#hero-s2 .hero-text p:not(.hero-kicker)+p{margin-top:-14px}
+#hero-s1 .hero-text,#hero-s2 .hero-text,#hero-s3 .hero-text{min-height:400px;display:flex;flex-direction:column;justify-content:center}
+#hero-s3 .hero-text p:not(.hero-kicker)+p{margin-top:-14px}
 .hero-photo-support{background:#E2EBF1}
 .hero-photo-support img{object-fit:contain!important;padding:10px 14px 52px}
 #hero-s2 .hero-photo{background:#493c2b}
@@ -322,8 +327,8 @@ details .a{padding:0 0 22px;color:var(--ink-soft);max-width:760px}
 .pick-tabs button{display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 12px;background:#fff;border:1px solid var(--line);border-radius:10px;font:600 14px 'Manrope',sans-serif;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
 .pick-tabs svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s}
 .pick-tabs svg .ac{stroke:var(--signal)}
-.pick-tabs button:hover{border-color:var(--ink)}
-.pick-tabs button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.pick-tabs button:hover{border-color:#172153}
+.pick-tabs button[aria-selected=true]{background:#172153;border-color:#172153;color:#fff}
 .pick-tabs button[aria-selected=true] svg,.pick-tabs button[aria-selected=true] svg .ac{stroke:#fff}
 .pick-panel{display:grid;grid-template-columns:1fr .95fr;background:#F5F7FA;border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .pick-info{padding:40px 40px 36px;align-self:center}
@@ -389,10 +394,13 @@ details .a{padding:0 0 22px;color:var(--ink-soft);max-width:760px}
 .launch-steps{list-style:none}
 .launch-steps li{display:flex;gap:32px;padding:20px 0;border-top:1px solid #E6DDB8}
 .launch-steps li:last-child{border-bottom:1px solid #E6DDB8}
-.launch-steps li>span{font:700 12px/2 'JetBrains Mono',monospace;color:var(--signal)}
+.launch-steps li{align-items:center}
+.launch-ico{flex:none;width:52px;height:52px}
+.launch-ico svg{width:100%;height:100%;fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.launch-ico .ac{stroke:var(--signal)}
 .launch-steps h3{font-size:19px;margin-bottom:4px}
 .launch-steps p{font-size:15.5px;color:var(--ink-soft)}
-@media(max-width:760px){.launch{padding:56px 0}.launch-grid{grid-template-columns:1fr;gap:24px}.launch-head .section-title br{display:none}.launch-steps li{gap:16px;padding:14px 0}.launch-steps h3{font-size:17px}}
+@media(max-width:760px){.launch{padding:56px 0}.launch-grid{grid-template-columns:1fr;gap:24px}.launch-head .section-title br{display:none}.launch-steps li{gap:16px;padding:14px 0}.launch-ico{width:42px;height:42px}.launch-steps h3{font-size:17px}}
 
 /* Contact */
 .contact{background:#FFF4F0;color:#4E4E4E;padding:56px 0}
@@ -435,12 +443,120 @@ footer a{color:var(--ink-soft)}
 
 :focus-visible{outline:3px solid var(--signal);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+/* Подвал сайта */
+.site-foot{padding:56px 0 40px;border-top:1px solid var(--line);background:#fff;font-size:14px;color:var(--ink-soft)}
+.foot-grid{display:grid;grid-template-columns:1fr 1.6fr 1.1fr 1fr;gap:32px}
+.foot-grid>*{min-width:0}
+.foot-logo{display:inline-block;text-decoration:none}
+.foot-logo .logo-img{height:32px;width:auto;max-width:100%;display:block}
+.foot-revs{margin:22px 0 18px}
+.foot-rev-icons{display:flex;align-items:center;gap:10px;margin-top:10px}
+.foot-revs span{display:block;font-size:13.5px;color:var(--ink-soft)}
+.foot-revs a{display:block;line-height:0;transition:transform .15s}
+.foot-revs a:hover{transform:scale(1.08)}
+.foot-revs img{width:32px;height:32px}
+.foot-copy{font-size:13px;line-height:1.55;color:var(--ink-soft)}
+.site-foot a{color:var(--ink-soft);text-decoration:none;transition:color .15s}
+.site-foot a:hover{color:var(--signal)}
+.foot-copy a{text-decoration:underline;text-underline-offset:3px}
+.foot-h{display:block;font-family:'Unbounded',sans-serif;font-weight:600;font-size:15px;color:var(--ink)!important;margin-bottom:14px}
+.site-foot a.foot-h:hover{color:var(--signal)!important}
+.foot-col ul{list-style:none;margin:0;padding:0}
+.foot-col li{margin:0 0 9px;line-height:1.4}
+.foot-col-2 ul{columns:2;column-gap:18px}
+.foot-col-2 li{break-inside:avoid}
+.foot-contacts a{display:block;margin-bottom:9px}
+.site-foot .foot-phone{font-weight:700;font-size:16px;color:var(--ink)}
+.foot-h-gap{margin-top:26px}
+.site-foot .foot-mail{font-weight:700;font-size:15px;color:var(--ink)}
+@media(max-width:1100px){.foot-grid{grid-template-columns:1fr 1fr 1fr}.foot-brand{grid-column:1/-1}}
+@media(max-width:1100px) and (min-width:761px){.foot-grid{grid-template-columns:1.6fr 1.1fr 1fr}}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px 24px}.foot-col-2{grid-column:1/-1}}
+@media(max-width:480px){.foot-grid{grid-template-columns:1fr}.foot-col-2 ul{column-gap:16px}}
+/* О нас говорят — кейсы-отзывы */
+.reviews{background:#FBFAF6;padding:72px 0;scroll-margin-top:100px}
+.reviews .section-title{margin-bottom:32px}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rv-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 26px 24px;min-width:0}
+.rv-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.rv-top h3{font-size:18px;line-height:1.3;margin-bottom:6px}
+.rv-meta{font-size:13.5px;color:var(--ink-soft);line-height:1.45}
+.rv-q{width:26px;height:26px;flex:none;fill:#F3C4BB}
+.rv-stars{display:flex;gap:3px;margin:14px 0 12px;font-size:17px;line-height:1;color:var(--signal)}
+.rv-stars .off{color:#E4E1DB}
+.rv-text{font-size:15.5px;line-height:1.6;color:var(--ink);margin-bottom:22px}
+.rv-res{margin-top:auto;display:flex;align-items:center;gap:14px;background:var(--receipt);border:1px dashed #D9D4C9;border-radius:12px;padding:14px 16px}
+.rv-res b{font:700 22px/1 'JetBrains Mono',monospace;color:var(--signal);white-space:nowrap}
+.rv-res span{font-size:13.5px;line-height:1.4;color:var(--ink-soft)}
+.rv-who{border-top:1px solid var(--line);margin-top:20px;padding-top:16px}
+.rv-who b{display:block;font-size:15px;color:var(--ink)}
+.rv-who span{font-size:13.5px;color:var(--ink-soft)}
+@media(max-width:980px){.rv-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.rv-grid{grid-template-columns:1fr}.reviews{padding:52px 0}}
+/* Мобильное меню: кнопка слева от логотипа */
+.nav-burger{display:none}
+.mob-menu{display:none}
+@media(max-width:900px){
+ .nav-burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;flex:none;margin-right:10px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+ .nav-burger i{display:block;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+ .nav-burger i:nth-child(2){background:var(--signal)}
+ body.mob-open .nav-burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+ body.mob-open .nav-burger i:nth-child(2){opacity:0}
+ body.mob-open .nav-burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+ .nav .logo{margin-right:auto}
+ .mob-menu{display:block;position:fixed;left:0;right:0;top:68px;bottom:0;z-index:49;background:#fff;overflow-y:auto;padding:10px 16px 28px;border-top:1px solid var(--line);transform:translateX(-100%);visibility:hidden;transition:transform .25s,visibility .25s}
+ body.mob-open{overflow:hidden}
+ body.mob-open .mob-menu{transform:none;visibility:visible}
+ .mob-menu details{border-bottom:1px solid var(--line)}
+ .mob-menu summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:14px 4px;font-weight:700;font-size:17px;color:var(--ink);cursor:pointer}
+ .mob-menu summary::-webkit-details-marker{display:none}
+ .mob-menu summary:after{content:"▾";color:var(--signal);font-size:15px;transition:transform .2s}
+ .mob-menu details[open] summary:after{transform:rotate(180deg)}
+ .mob-menu details>div{padding:0 0 12px}
+ .mob-menu a{display:flex;align-items:center;gap:12px;padding:7px 4px;text-decoration:none;color:var(--ink-soft);font-size:15px;border-radius:10px}
+ .mob-menu a:active,.mob-menu a:hover{background:#FFF1EC;color:var(--signal)}
+ .mob-menu a svg{width:32px;height:32px;padding:6px;box-sizing:border-box;flex:none;background:#FCEBE6;border-radius:8px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+ .mob-menu a svg .ac{stroke:var(--signal)}
+ .mob-menu a.mob-all{font-weight:700;color:var(--signal)}
+ .mob-menu>a{padding:14px 4px;font-weight:700;font-size:17px;color:var(--ink);border-bottom:1px solid var(--line);border-radius:0}
+ .mob-contacts{margin-top:22px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+ .mob-contacts a.mob-phone{padding:0;font-size:19px;font-weight:700;color:var(--ink)}
+}
+@media(max-width:560px){.nav-burger{width:36px;height:36px;padding:0 9px;margin-right:8px}.nav-right .nav-phone{display:none}}
+@media(max-width:400px){.logo-img{height:29px}}
+/* Выбери лицензию — тарифы iikoCloud на главной */
+.lic{background:#fff;padding:80px 0;scroll-margin-top:100px}
+.lic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+.lic-card{position:relative;display:flex;flex-direction:column;background:#F5F7FA;border:1px solid var(--line);border-radius:14px;padding:26px 24px 24px;min-width:0}
+.lic-tag{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--signal)}
+.lic-card h3{font-size:19px;margin:8px 0 16px;line-height:1.25;min-height:2.5em}
+.lic-price{display:flex;flex-direction:column;gap:2px;padding:14px 0;border-top:1px dashed #CCD3DA;border-bottom:1px dashed #CCD3DA}
+.lic-price b{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:700;letter-spacing:-0.01em;color:var(--ink)}
+.lic-price span{font-size:13.5px;color:var(--ink-soft)}
+.lic-kit{margin:16px 0 22px;gap:8px}
+.lic-kit li{font-size:14px;font-weight:500;line-height:1.4}
+.lic-btn{margin-top:auto;justify-content:center;width:100%}
+.lic-btn-ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--signal);border:1.5px solid var(--signal);border-radius:8px;padding:11.5px 20px;font:700 15px 'Manrope',sans-serif;cursor:pointer;transition:background .15s,color .15s}
+.lic-btn-ghost:hover{background:var(--signal);color:#fff}
+.lic-feat{background:#172153;border-color:#172153;color:#fff}
+.lic-feat h3,.lic-feat .lic-price b{color:#fff}
+.lic-feat .lic-price{border-color:#3A4677}
+.lic-feat .lic-price span{color:#B4BAD3}
+.lic-feat .lic-kit li{color:#fff}
+@media(min-width:1101px){.lic-grid{padding:16px 0}.lic-feat{margin:-18px -6px;padding:44px 30px 42px;box-shadow:0 22px 44px rgba(25,28,30,.22);z-index:1}.lic-feat .lic-price b{font-size:32px}.lic-feat h3{font-size:20px}}
+.lic-badge{position:absolute;top:-12px;right:18px;background:var(--signal);color:#fff;font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px}
+.lic-note{margin-top:18px;font-size:14px;color:var(--ink-soft)}
+.turnkey-h{font-size:clamp(28px,3.6vw,44px);letter-spacing:-0.01em;margin-bottom:44px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.turnkey-h .accent{color:var(--signal)}
+@media(max-width:1100px){.lic-grid{grid-template-columns:1fr 1fr;gap:22px 18px}}
+@media(max-width:560px){.lic{padding:56px 0}.lic-grid{grid-template-columns:1fr}.turnkey-h{margin-bottom:32px;padding-bottom:20px}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
+    <button class="nav-burger" type="button" aria-label="Меню сайта" aria-expanded="false" aria-controls="mob-menu"><i></i><i></i><i></i></button>
     <a class="logo" href="#" aria-label="Софт Трейд — на главную">
       <svg class="logo-img" role="img" aria-label="Софт Трейд — системы автоматизации" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 271.42 51.88">
   <defs>
@@ -542,6 +658,7 @@ footer a{color:var(--ink-soft)}
     </nav>
     <div class="nav-right">
       <a class="nav-phone" href="tel:+73833830110">+7 (383) 383-01-10</a>
+      <a class="nav-mail" href="mailto:resto@st54.ru">resto@st54.ru</a>
       <button class="nav-callback" type="button" onclick="stOpen('cb-modal')">Заказать звонок</button>
     </div>
   </div>
@@ -599,8 +716,9 @@ footer a{color:var(--ink-soft)}
   <div class="hero-slides">
   <div class="wrap hero-grid hero-slide is-on" id="hero-s1" aria-roledescription="слайд" aria-label="1 из 3">
     <div class="hero-text">
-      <h1>Автоматизация кафе и ресторанов на экосистеме <span class="accent">iiko</span> «под ключ»</h1>
-      <p>Свяжем зал, кухню и учёт в iiko. Подберём POS-оборудование, обучим команду и останемся на связи после запуска.</p>
+      <h1>Автоматизация<br>кафе и ресторанов<br>на экосистеме <span class="accent">iiko</span><br>«под ключ»</h1>
+      <p class="hero-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>Свяжем зал, кухню и учёт в iiko</p>
+      <p>Подберём POS-оборудование, обучим команду и останемся на связи после запуска.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact">Рассчитать стоимость</a>
         <a class="btn btn-tg" href="https://max.ru/+79855200101" target="_blank" rel="noopener">
@@ -626,8 +744,8 @@ footer a{color:var(--ink-soft)}
   </div>
   <div class="wrap hero-grid hero-slide" id="hero-s2" aria-roledescription="слайд" aria-label="2 из 3" aria-hidden="true">
     <div class="hero-text">
-      <p class="hero-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4H7a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h1l-.2 3 4.1-3H17a4 4 0 0 0 4-4v-4M7 10v3m4-5v7m4-5v3M19 2l1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></svg>Ваш бизнес — в формате диалога</p>
       <h2 class="hero-h">ИИ-ассистент в <span class="accent">iiko</span></h2>
+      <p class="hero-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4H7a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h1l-.2 3 4.1-3H17a4 4 0 0 0 4-4v-4M7 10v3m4-5v7m4-5v3M19 2l1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></svg>Ваш бизнес — в формате диалога</p>
       <p>Спросите о выручке, продажах или расходах — и получите ответ на основе данных вашего заведения.</p>
       <p>ИИ-ассистент помогает разобраться в показателях и подсказывает, на что обратить внимание.</p>
       <div class="hero-ctas">
@@ -642,8 +760,8 @@ footer a{color:var(--ink-soft)}
   </div>
   <div class="wrap hero-grid hero-slide" id="hero-s3" aria-roledescription="слайд" aria-label="3 из 3" aria-hidden="true">
     <div class="hero-text">
-      <p class="hero-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M4 13h3v6H5a1 1 0 0 1-1-1zM20 13h-3v6h2a1 1 0 0 0 1-1z"/><path d="M17 19c0 1.5-2 2.5-5 2.5"/></svg>Сопровождение после запуска</p>
       <h2 class="hero-h">Техническая поддержка <span class="accent">24/7</span></h2>
+      <p class="hero-kicker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M4 13h3v6H5a1 1 0 0 1-1-1zM20 13h-3v6h2a1 1 0 0 0 1-1z"/><path d="M17 19c0 1.5-2 2.5-5 2.5"/></svg>Сопровождение после запуска</p>
       <p>Поможем освоить iiko и госсистемы: Честный знак, ЕГАИС, ОФД, Меркурий, подключить интеграции и обучить сотрудников.</p>
       <p>Решаем вопросы с первого обращения. Поддержка круглосуточно, без выходных и лимитов.</p>
       <div class="hero-ctas">
@@ -667,8 +785,53 @@ footer a{color:var(--ink-soft)}
   </div>
 </section>
 
+<section class="lic" id="lic" aria-labelledby="lic-title">
+  <div class="wrap">
+    <div class="pick-top">
+      <div>
+        <div class="pick-eyebrow">ЛИЦЕНЗИИ iikoCLOUD</div>
+        <h2 class="section-title" id="lic-title">Выбери лицензию</h2>
+      </div>
+      <a class="pick-all" href="iikocloud.html#features">Сравнить тарифы →</a>
+    </div>
+    <div class="lic-grid">
+      <article class="lic-card">
+        <span class="lic-tag">КОРНЕР</span>
+        <h3>Кофе-пойнты и фудтраки</h3>
+        <div class="lic-price"><b>2 500&nbsp;₽</b><span>в месяц за заведение</span></div>
+        <ul class="pick-kit lic-kit"><li>Мобильная касса iOS / Android</li><li>Учёт товаров в облаке</li><li>Готовые отчёты в облаке</li><li>Заказы от агрегаторов</li><li>Электронные карты лояльности</li></ul>
+        <button type="button" class="lic-btn lic-btn-ghost" onclick="stOpen('req-modal')">Подключить</button>
+      </article>
+      <article class="lic-card">
+        <span class="lic-tag">КАФЕ</span>
+        <h3>Небольшие заведения</h3>
+        <div class="lic-price"><b>5 000&nbsp;₽</b><span>в месяц за заведение</span></div>
+        <ul class="pick-kit lic-kit"><li>Касса + кухонный экран (Windows)</li><li>Умный склад, инвентаризация со смартфона</li><li>Табель и конструктор отчётов</li><li>Доставка на кассе и агрегаторы</li><li>Электронные карты лояльности</li></ul>
+        <button type="button" class="lic-btn lic-btn-ghost" onclick="stOpen('req-modal')">Подключить</button>
+      </article>
+      <article class="lic-card lic-feat">
+        <span class="lic-badge">Выбирают чаще всего</span>
+        <span class="lic-tag">ПРОФЕССИОНАЛЬНЫЙ</span>
+        <h3>Рестораны и сети</h3>
+        <div class="lic-price"><b>8 600&nbsp;₽</b><span>в месяц за кассу</span></div>
+        <ul class="pick-kit lic-kit"><li>Финансы, склад, персонал</li><li>Алкоголь и ЕГАИС</li><li>iikoWeb, iikoOffice, iikoChain</li><li>Лояльность iikoCard</li><li>Сторонние приложения (API)</li></ul>
+        <button type="button" class="pick-cta lic-btn" onclick="stOpen('req-modal')">Подключить</button>
+      </article>
+      <article class="lic-card">
+        <span class="lic-tag">КОРПОРАТИВНЫЙ</span>
+        <h3>Крупные сети</h3>
+        <div class="lic-price"><b>10 600&nbsp;₽</b><span>в месяц за кассу</span></div>
+        <ul class="pick-kit lic-kit"><li>Всё из «Профессионального»</li><li>Контроль свежести блюд</li><li>Колл-центр и этапы доставки</li><li>Wallet и RFM-анализ</li><li>Управление франшизой</li></ul>
+        <button type="button" class="lic-btn lic-btn-ghost" onclick="stOpen('req-modal')">Подключить</button>
+      </article>
+    </div>
+    <p class="lic-note">Цены iiko за месяц. Подключение и настройку берём на себя.</p>
+  </div>
+</section>
+
 <section class="pick" id="pick" aria-labelledby="pick-title">
   <div class="wrap">
+    <h2 class="turnkey-h">Или решение <span class="accent">«под ключ»</span></h2>
     <div class="pick-top">
       <div>
         <div class="pick-eyebrow"><span class="pick-num">01</span>ПОДБОР РЕШЕНИЯ</div>
@@ -691,7 +854,7 @@ footer a{color:var(--ink-soft)}
         <div class="pick-scene-bot"><span id="pick-flow">Зал → Кухня → Расчёт</span><span>Схема работы</span></div>
       </div>
     </div>
-    <template id="pick-draw-rest"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><g fill="none" stroke="#7A8389" stroke-width="1.3"><path d="M16 70V14h111m30 0h186v118H170m-35 0H16v-33"/><path d="M127 14v24m0 0a25 25 0 0 0 25-24M135 132v-27m0 0a27 27 0 0 1 27 27" stroke-dasharray="3 3"/></g><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="42" y="35" width="11" height="3" rx="1"/><rect x="59" y="35" width="11" height="3" rx="1"/><rect x="42" y="69" width="11" height="3" rx="1"/><rect x="59" y="69" width="11" height="3" rx="1"/><rect x="36" y="41" width="40" height="25" rx="4"/></g><text x="56.0" y="57" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">01</text><g stroke="#F3A193" stroke-width="1.25" fill="#E05643"><rect x="123" y="54" width="11" height="3" rx="1"/><rect x="148" y="54" width="11" height="3" rx="1"/><rect x="123" y="88" width="11" height="3" rx="1"/><rect x="148" y="88" width="11" height="3" rx="1"/><rect x="117" y="60" width="48" height="25" rx="4"/></g><text x="141.0" y="76" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="9">02</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="201" y="32" width="11" height="3" rx="1"/><rect x="218" y="32" width="11" height="3" rx="1"/><rect x="201" y="66" width="11" height="3" rx="1"/><rect x="218" y="66" width="11" height="3" rx="1"/><rect x="195" y="38" width="40" height="25" rx="4"/></g><text x="215.0" y="54" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">03</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="275" y="59" width="11" height="3" rx="1"/><rect x="300" y="59" width="11" height="3" rx="1"/><rect x="275" y="93" width="11" height="3" rx="1"/><rect x="300" y="93" width="11" height="3" rx="1"/><rect x="269" y="65" width="48" height="25" rx="4"/></g><text x="293.0" y="81" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">04</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="60" y="89" width="11" height="3" rx="1"/><rect x="77" y="89" width="11" height="3" rx="1"/><rect x="60" y="123" width="11" height="3" rx="1"/><rect x="77" y="123" width="11" height="3" rx="1"/><rect x="54" y="95" width="40" height="25" rx="4"/></g><text x="74.0" y="111" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">05</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="207" y="91" width="11" height="3" rx="1"/><rect x="224" y="91" width="11" height="3" rx="1"/><rect x="207" y="125" width="11" height="3" rx="1"/><rect x="224" y="125" width="11" height="3" rx="1"/><rect x="201" y="97" width="40" height="25" rx="4"/></g><text x="221.0" y="113" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">06</text></svg></template><template id="pick-draw-coffee"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><g stroke="#A3ABB1" fill="none" stroke-width="1.5"><path d="M17 96h324M42 96v12m269-12v12"/><path d="M42 78h55l5 16H37zM47 76l-1-27h50l-4 27zM55 53h32v16H55z"/><path d="M153 49h61v36h-8V58h-40v27h-13zM166 63h31m-17 0v8m12-8v8M168 75h18v7c0 10-18 10-18 0zM186 76h4c5 0 5 7-3 7M151 90h66v4h-66z"/><path d="M270 63h29l-4 26h-21zM269 60h31v4h-31z" fill="#E05643"/></g><text x="68" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">ЗАКАЗ</text><text x="183" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">БАРИСТА</text><text x="284" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">ВЫДАЧА</text></svg></template><template id="pick-draw-fast"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><rect x="32" y="31" width="85" height="85" rx="7" fill="#2E3337" stroke="#7A8389"/><path d="M41 83h67" stroke="#6B7378" stroke-dasharray="3 3"/><text x="74" y="67" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="24">041</text><text x="74" y="100" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="8">ПРИНЯТ</text><rect x="133" y="24" width="85" height="85" rx="7" fill="#3A4045" stroke="#7A8389"/><path d="M142 76h67" stroke="#6B7378" stroke-dasharray="3 3"/><text x="175" y="60" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="24">042</text><text x="175" y="93" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="8">НА КУХНЕ</text><rect x="234" y="31" width="85" height="85" rx="7" fill="#E05643" stroke="#7A8389"/><path d="M243 83h67" stroke="#6B7378" stroke-dasharray="3 3"/><text x="276" y="67" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="24">043</text><text x="276" y="100" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="8">ГОТОВ</text></svg></template><template id="pick-draw-delivery"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><path d="M45 96c35 0 20-45 67-45h34c29 0 19 37 50 37h38c34 0 28-46 55-46h23" fill="none" stroke="#8C959B" stroke-width="2" stroke-dasharray="5 4"/><circle cx="43" cy="96" r="13" fill="#E05643" stroke="#F3A193"/><text x="43" y="100" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12">1</text><circle cx="176" cy="74" r="13" fill="#E05643" stroke="#F3A193"/><text x="176" y="78" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12">2</text><circle cx="309" cy="42" r="13" fill="#E05643" stroke="#F3A193"/><text x="309" y="46" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12">3</text><text x="58" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">ПРИЁМ</text><text x="178" y="119" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">КУХНЯ</text><text x="304" y="76" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">КУРЬЕР</text></svg></template>
+    <template id="pick-draw-rest"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><g fill="none" stroke="#7A8389" stroke-width="1.3"><path d="M16 70V14h111m30 0h186v118H170m-35 0H16v-33"/><path d="M127 14v24m0 0a25 25 0 0 0 25-24M135 132v-27m0 0a27 27 0 0 1 27 27" stroke-dasharray="3 3"/></g><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="42" y="35" width="11" height="3" rx="1"/><rect x="59" y="35" width="11" height="3" rx="1"/><rect x="42" y="69" width="11" height="3" rx="1"/><rect x="59" y="69" width="11" height="3" rx="1"/><rect x="36" y="41" width="40" height="25" rx="4"/></g><text x="56.0" y="57" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">01</text><g stroke="#F3A193" stroke-width="1.25" fill="#E05643"><rect x="123" y="54" width="11" height="3" rx="1"/><rect x="148" y="54" width="11" height="3" rx="1"/><rect x="123" y="88" width="11" height="3" rx="1"/><rect x="148" y="88" width="11" height="3" rx="1"/><rect x="117" y="60" width="48" height="25" rx="4"/></g><text x="141.0" y="76" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="9">02</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="201" y="32" width="11" height="3" rx="1"/><rect x="218" y="32" width="11" height="3" rx="1"/><rect x="201" y="66" width="11" height="3" rx="1"/><rect x="218" y="66" width="11" height="3" rx="1"/><rect x="195" y="38" width="40" height="25" rx="4"/></g><text x="215.0" y="54" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">03</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="275" y="59" width="11" height="3" rx="1"/><rect x="300" y="59" width="11" height="3" rx="1"/><rect x="275" y="93" width="11" height="3" rx="1"/><rect x="300" y="93" width="11" height="3" rx="1"/><rect x="269" y="65" width="48" height="25" rx="4"/></g><text x="293.0" y="81" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">04</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="60" y="89" width="11" height="3" rx="1"/><rect x="77" y="89" width="11" height="3" rx="1"/><rect x="60" y="123" width="11" height="3" rx="1"/><rect x="77" y="123" width="11" height="3" rx="1"/><rect x="54" y="95" width="40" height="25" rx="4"/></g><text x="74.0" y="111" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">05</text><g stroke="#8C959B" stroke-width="1.25" fill="#2E3337"><rect x="207" y="91" width="11" height="3" rx="1"/><rect x="224" y="91" width="11" height="3" rx="1"/><rect x="207" y="125" width="11" height="3" rx="1"/><rect x="224" y="125" width="11" height="3" rx="1"/><rect x="201" y="97" width="40" height="25" rx="4"/></g><text x="221.0" y="113" text-anchor="middle" fill="#EDEFF1" font-family="'JetBrains Mono', monospace" font-size="9">06</text></svg></template><template id="pick-draw-coffee"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><g stroke="#A3ABB1" fill="none" stroke-width="1.5"><path d="M17 96h324M42 96v12m269-12v12"/><path d="M42 78h55l5 16H37zM47 76l-1-27h50l-4 27zM55 53h32v16H55z"/><path d="M153 49h61v36h-8V58h-40v27h-13zM166 63h31m-17 0v8m12-8v8M168 75h18v7c0 10-18 10-18 0zM186 76h4c5 0 5 7-3 7M151 90h66v4h-66z"/><path d="M270 63h29l-4 26h-21zM269 60h31v4h-31z" fill="#E05643"/></g><text x="68" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">ЗАКАЗ</text><text x="183" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">БАРИСТА</text><text x="284" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">ВЫДАЧА</text></svg></template><template id="pick-draw-fast"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><rect x="32" y="31" width="85" height="85" rx="7" fill="#E05643" stroke="#7A8389"/><path d="M41 83h67" stroke="#6B7378" stroke-dasharray="3 3"/><text x="74" y="67" text-anchor="middle" fill="#191C1E" font-family="'JetBrains Mono', monospace" font-size="24">041</text><text x="74" y="100" text-anchor="middle" fill="#191C1E" font-family="'JetBrains Mono', monospace" font-size="8">ПРИНЯТ</text><rect x="133" y="24" width="85" height="85" rx="7" fill="#F5C842" stroke="#7A8389"/><path d="M142 76h67" stroke="#6B7378" stroke-dasharray="3 3"/><text x="175" y="60" text-anchor="middle" fill="#191C1E" font-family="'JetBrains Mono', monospace" font-size="24">042</text><text x="175" y="93" text-anchor="middle" fill="#191C1E" font-family="'JetBrains Mono', monospace" font-size="8">НА КУХНЕ</text><rect x="234" y="31" width="85" height="85" rx="7" fill="#B5D99C" stroke="#7A8389"/><path d="M243 83h67" stroke="#6B7378" stroke-dasharray="3 3"/><text x="276" y="67" text-anchor="middle" fill="#191C1E" font-family="'JetBrains Mono', monospace" font-size="24">043</text><text x="276" y="100" text-anchor="middle" fill="#191C1E" font-family="'JetBrains Mono', monospace" font-size="8">ГОТОВ</text></svg></template><template id="pick-draw-delivery"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 147"><path d="M45 96c35 0 20-45 67-45h34c29 0 19 37 50 37h38c34 0 28-46 55-46h23" fill="none" stroke="#8C959B" stroke-width="2" stroke-dasharray="5 4"/><circle cx="43" cy="96" r="13" fill="#E05643" stroke="#F3A193"/><text x="43" y="100" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12">1</text><circle cx="176" cy="74" r="13" fill="#E05643" stroke="#F3A193"/><text x="176" y="78" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12">2</text><circle cx="309" cy="42" r="13" fill="#E05643" stroke="#F3A193"/><text x="309" y="46" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12">3</text><text x="58" y="130" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">ПРИЁМ</text><text x="178" y="119" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">КУХНЯ</text><text x="304" y="76" text-anchor="middle" fill="#C9CED2" font-family="'JetBrains Mono', monospace" font-size="10">КУРЬЕР</text></svg></template>
   </div>
 </section>
 
@@ -715,9 +878,9 @@ footer a{color:var(--ink-soft)}
       <a class="pick-all" href="faq.html">Вопросы и ответы →</a>
     </div>
     <ol class="launch-steps">
-      <li><span>01</span><div><h3>Разберём, как вы работаете</h3><p>Уточним формат, количество касс и что уже установлено.</p></div></li>
-      <li><span>02</span><div><h3>Согласуем комплект и смету</h3><p>Отдельно покажем программу, оборудование и работы по запуску.</p></div></li>
-      <li><span>03</span><div><h3>Проверим заказ вместе</h3><p>Пройдём путь от кассы до кухни и разберём с командой первую смену.</p></div></li>
+      <li><span class="launch-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path class="ac" d="M15.3 15.3 21 21"/><path class="ac" d="M7.6 9a3.2 3.2 0 0 1 2.4-1.9"/></svg></span><div><h3>Разберём, как вы работаете</h3><p>Уточним формат, количество касс и что уже установлено.</p></div></li>
+      <li><span class="launch-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path class="ac" d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path class="ac" d="M3 4h8"/></svg></span><div><h3>Согласуем комплект и смету</h3><p>Отдельно покажем программу, оборудование и работы по запуску.</p></div></li>
+      <li><span class="launch-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3-2 1.3z"/><path class="ac" d="m9 10 2 2 4-4"/><path d="M9 16h6"/></svg></span><div><h3>Проверим заказ вместе</h3><p>Пройдём путь от кассы до кухни и разберём с командой первую смену.</p></div></li>
     </ol>
   </div>
 </section>
@@ -765,6 +928,36 @@ footer a{color:var(--ink-soft)}
   </div>
 </section>
 
+<section class="reviews" id="reviews" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <div class="pick-eyebrow"><span class="pick-num">05</span>ИСТОРИИ КЛИЕНТОВ</div>
+    <h2 class="section-title" id="reviews-title">О нас говорят</h2>
+    <div class="rv-grid">
+      <article class="rv-card">
+        <div class="rv-top"><div><h3>Кафе «Печь и Пар»</h3><p class="rv-meta">Кафе · 48 посадочных мест · Новосибирск</p></div><svg class="rv-q" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-5.5C4 8.4 6 6 9.5 5.5l.5 1.6C8 7.7 7.2 9 7.1 11H10v7zm10 0v-5.5c0-4.1 2-6.5 5.5-7l.5 1.6c-2 .6-2.8 1.9-2.9 3.9H20v7z"/></svg></div>
+        <div class="rv-stars" role="img" aria-label="Оценка 5 из 5"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="rv-text">«Переехали на iiko за выходные: в пятницу закрыли смену на старой кассе, в понедельник открылись на новой. Технику привезли со склада, официантов обучили прямо в зале — никто не путался уже к обеду.»</p>
+        <div class="rv-res"><b>−6%</b><span>фудкост за первые три месяца</span></div>
+        <div class="rv-who"><b>Ольга Сергеевна</b><span>Управляющая кафе</span></div>
+      </article>
+      <article class="rv-card">
+        <div class="rv-top"><div><h3>Кофейни «Зерно»</h3><p class="rv-meta">Сеть кофеен · 4 точки · Барнаул</p></div><svg class="rv-q" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-5.5C4 8.4 6 6 9.5 5.5l.5 1.6C8 7.7 7.2 9 7.1 11H10v7zm10 0v-5.5c0-4.1 2-6.5 5.5-7l.5 1.6c-2 .6-2.8 1.9-2.9 3.9H20v7z"/></svg></div>
+        <div class="rv-stars" role="img" aria-label="Оценка 5 из 5"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="rv-text">«Цену назвали сразу, без „давайте созвонимся“. Любой вопрос решаем в Max за пару минут, а выручку и средний чек по всем точкам я смотрю с телефона.»</p>
+        <div class="rv-res"><b>+22%</b><span>повторных визитов с программой лояльности</span></div>
+        <div class="rv-who"><b>Андрей Николаевич</b><span>Владелец сети</span></div>
+      </article>
+      <article class="rv-card">
+        <div class="rv-top"><div><h3>Бар «Хмель и Солод»</h3><p class="rv-meta">Гастробар · 60 посадочных мест · Москва</p></div><svg class="rv-q" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-5.5C4 8.4 6 6 9.5 5.5l.5 1.6C8 7.7 7.2 9 7.1 11H10v7zm10 0v-5.5c0-4.1 2-6.5 5.5-7l.5 1.6c-2 .6-2.8 1.9-2.9 3.9H20v7z"/></svg></div>
+        <div class="rv-stars" role="img" aria-label="Оценка 4 из 5"><span>★</span><span>★</span><span>★</span><span>★</span><span class="off">★</span></div>
+        <p class="rv-text">«ЕГАИС был нашей головной болью: ночные сверки, страх штрафов. Теперь вскрытие тары и остатки сходятся сами, а ассистент по утрам присылает выручку за вчера.»</p>
+        <div class="rv-res"><b>40 мин</b><span>на инвентаризацию бара вместо трёх часов</span></div>
+        <div class="rv-who"><b>Игорь Валентинович</b><span>Совладелец бара</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <div class="trust">
   <div class="wrap trust-grid">
     <div class="trust-item"><b>20 лет</b><span>автоматизируем торговлю и рестораны</span></div>
@@ -774,10 +967,107 @@ footer a{color:var(--ink-soft)}
   </div>
 </div>
 
-<footer>
-  <div class="wrap footer-row">
-    <span>© 2026 Софт Трейд. Торговое оборудование и системы автоматизации с 2005 года.</span>
-    <span><a href="https://www.st54.ru" target="_blank" rel="noopener">Интернет-магазин st54.ru</a></span>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="foot-logo" href="index.html" aria-label="Софт Трейд — на главную"><svg class="logo-img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 271.42 51.88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path-f);
+      }
+
+      .cls-4 {
+        fill: #E05643;
+      }
+    </style>
+    <clipPath id="clip-path-f" transform="translate(-277.07 -262.33)">
+      <rect class="cls-1" width="841.89" height="595.28"/>
+    </clipPath>
+  </defs>
+  <g class="cls-2">
+    <path d="M330.66,276.28c0-8.33,5.12-13.92,13.21-13.92,6.26,0,10.75,3.75,11.65,9.54h-4.65a7.06,7.06,0,0,0-7.19-5.59c-5.2,0-8.4,4.11-8.4,10s3.13,10,8.29,10a7,7,0,0,0,7.27-5.59h4.65c-.86,5.78-5.51,9.54-11.88,9.54-8,0-12.94-5.51-12.94-13.92" transform="translate(-277.07 -262.33)"/>
+    <path d="M357.83,280c0-6.1,4.11-10.24,10.2-10.24s10.2,4.14,10.2,10.24S374.13,290.2,368,290.2s-10.2-4.1-10.2-10.24m16.11,0c0-3.87-2.35-6.65-5.9-6.65s-5.86,2.78-5.86,6.65,2.31,6.65,5.86,6.65,5.9-2.78,5.9-6.65" transform="translate(-277.07 -262.33)"/>
+    <path d="M392,297.78v-7.66c-6.92-.23-11.3-4.11-11.3-10.16s4.42-9.89,11.3-10.17v-6.57h4.14v6.57c6.92.27,11.3,4.11,11.3,10.17s-4.42,9.93-11.3,10.16v7.66Zm0-24.43c-4.38.16-7.08,2.62-7.08,6.61s2.7,6.45,7.08,6.61Zm4.07,13.21c4.42-.16,7-2.58,7-6.61s-2.62-6.45-7-6.61Z" transform="translate(-277.07 -262.33)"/>
+    <polygon points="137.63 27.64 137.63 11.34 130.82 11.34 130.82 7.62 148.65 7.62 148.65 11.34 141.85 11.34 141.85 27.64 137.63 27.64"/>
+    <polygon points="159.44 0.27 180.82 0.27 180.82 4.26 172.37 4.26 172.37 27.64 167.88 27.64 167.88 4.26 159.44 4.26 159.44 0.27"/>
+    <path d="M478.84,280c0,6.18-4,10.24-9.46,10.24a7.51,7.51,0,0,1-6.49-3v10.63h-4.22V269.95h3.67l.51,3a7.83,7.83,0,0,1,6.53-3.2c5.47,0,9.46,3.83,9.46,10.24m-4.3,0c0-3.95-2.35-6.65-5.86-6.65s-5.83,2.7-5.83,6.57,2.31,6.76,5.83,6.76,5.86-2.78,5.86-6.69" transform="translate(-277.07 -262.33)"/>
+    <path d="M481.3,280c0-6.18,3.95-10.28,9.85-10.28s9.66,3.67,9.77,9.54a11.51,11.51,0,0,1-.12,1.6H485.72v.27c.12,3.4,2.27,5.63,5.59,5.63,2.58,0,4.46-1.29,5-3.52h4.22c-.7,3.95-4.06,7-9,7-6.29,0-10.24-4.07-10.24-10.2m15.25-2.23a5,5,0,0,0-5.36-4.65,5.17,5.17,0,0,0-5.32,4.65Z" transform="translate(-277.07 -262.33)"/>
+    <path d="M504.13,290v-20h4.1v13.88L519,269.95h3.71v20h-4.11V276L507.8,290Zm3.21-27.64h3.24c0,1.8.78,2.89,2.81,2.89s2.89-1.1,2.89-2.89h3.24c-.08,3.6-2.35,5.51-6.18,5.51s-5.94-1.92-6-5.51" transform="translate(-277.07 -262.33)"/>
+    <path d="M545.25,286.25h3.24v9h-4.14V290H529.07v5.28h-4.14v-9H527c1.41-.94,2.15-2.31,2.15-8.05v-8.25h16.11Zm-4.22,0V273.66h-7.9v5c0,4-.47,6.14-1.37,7.58Z" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M310.43,273H297.49v-4h7.41a1.26,1.26,0,0,0,1.26-1.26v-4.13a1.26,1.26,0,0,0-1.26-1.26H285.69a1.26,1.26,0,0,0-1.26,1.26v4.13a1.26,1.26,0,0,0,1.26,1.26h8v4H280.15a3.08,3.08,0,0,0-3.08,3.08v19.82a3.08,3.08,0,0,0,3.08,3.08h30.28a3.08,3.08,0,0,0,3.08-3.08V276.11a3.08,3.08,0,0,0-3.08-3.08M287,264.6h16.52v2.24H287ZM309,294.2H281.63V277.84H309Z" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M279.47,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M283.63,304.68H282a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M279.47,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M283.63,308.86H282a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M287.73,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M291.84,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M287.73,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M291.84,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M296,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73H296a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M300.29,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M296,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73H296a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M300.29,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M304.53,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M304.53,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M308.67,304.68H307a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M312.78,304.68h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M308.67,308.86H307a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M312.78,308.86h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M283.63,313H282a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M287.73,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M291.84,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M295.94,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M300.29,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M304.53,313h-1.66a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+    <path class="cls-4" d="M308.67,313H307a.74.74,0,0,1-.74-.74v-1.66a.73.73,0,0,1,.74-.73h1.66a.74.74,0,0,1,.74.73v1.66a.74.74,0,0,1-.74.74" transform="translate(-277.07 -262.33)"/>
+  </g>
+<text x="162.5" y="50.2" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#828282" letter-spacing="1.1">Системы автоматизации</text>
+</svg></a>
+      <div class="foot-revs">
+        <span>Оставьте отзыв:</span>
+        <div class="foot-rev-icons"><a href="https://yandex.ru/profile/1296923492" target="_blank" rel="noopener nofollow" aria-label="Отзывы о Софт Трейд на Яндексе"><img src="img/ya-rev.png" width="88" height="88" alt=""></a>
+        <a href="https://novosibirsk.flamp.ru/firm/soft_trejjd_ooo-141265769461985" target="_blank" rel="noopener nofollow" aria-label="Отзывы о Софт Трейд на Флампе"><img src="img/fb-rev.png" width="88" height="88" alt=""></a></div>
+      </div>
+      <p class="foot-copy">© 2026 ООО «Трейд Плюс». Все права защищены.<br><a href="agreement.html">Политика конфиденциальности</a></p>
+    </div>
+    <nav class="foot-col foot-col-2" aria-label="Автоматизируем">
+      <a class="foot-h" href="formats.html">Автоматизируем</a>
+      <ul>
+        <li><a href="restaurant.html">Рестораны</a></li>
+        <li><a href="coffee.html">Кофейни и пекарни</a></li>
+        <li><a href="bar.html">Бары и пабы</a></li>
+        <li><a href="canteen.html">Столовые</a></li>
+        <li><a href="cafe.html">Кафе</a></li>
+        <li><a href="delivery.html">Доставка и dark kitchen</a></li>
+        <li><a href="fastfood.html">Фастфуд</a></li>
+        <li><a href="kiosk.html">Киоски и стритфуд</a></li>
+        <li><a href="chain.html">Сети заведений</a></li>
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-label="Услуги и цены">
+      <a class="foot-h" href="services.html">Услуги и цены</a>
+      <ul>
+        <li><a href="iikocloud.html">Тарифы iikoCloud</a></li>
+        <li><a href="support.html">Тарифы сопровождения</a></li>
+        <li><a href="cto.html">ЦТО кассы и сервис</a></li>
+        <li><a href="training.html">Обучение</a></li>
+        <li><a href="audit.html">Аудит</a></li>
+        <li><a href="gov.html">Госсистемы / ЕГАИС / ЧЗ / Меркурий</a></li>
+      </ul>
+    </nav>
+    <div class="foot-col foot-contacts">
+      <a class="foot-h" href="equipment.html">Оборудование</a>
+      <a class="foot-h" href="https://www.st54.ru/about/" target="_blank" rel="noopener">О компании</a>
+      <span class="foot-h foot-h-gap">Контакты</span>
+      <a class="foot-phone" href="tel:+73833830110">+7 (383) 383-01-10</a>
+      <a class="foot-mail" href="mailto:resto@st54.ru">resto@st54.ru</a>
+      <a href="https://www.st54.ru" target="_blank" rel="noopener">Интернет-магазин st54.ru</a>
+    </div>
   </div>
 </footer>
 
@@ -843,13 +1133,38 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.qu
       s.querySelectorAll('a,button').forEach(function(a){a.tabIndex=on?0:-1;});});
     dots.forEach(function(d,k){d.classList.toggle('is-on',k===cur);if(k===cur)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current');});
   }
-  function start(){stop();timer=setInterval(function(){show(cur+1);},8000);}
+  function start(){stop();timer=setInterval(function(){show(cur+1);},15000);}
   function stop(){clearInterval(timer);}
   dots.forEach(function(d){d.addEventListener('click',function(){show(+d.dataset.go);start();});});
   hero.querySelectorAll('.hero-arr').forEach(function(b){b.addEventListener('click',function(){show(cur+(+b.dataset.step));start();});});
   hero.addEventListener('mouseenter',stop); hero.addEventListener('mouseleave',start);
   hero.addEventListener('focusin',stop); hero.addEventListener('focusout',start);
   show(0); start();
+})();
+</script>
+<script>
+/* Мобильное меню: собирается из пунктов шапки */
+(function(){
+  var b=document.querySelector('.nav-burger'),nav=document.querySelector('.nav-links');if(!b||!nav)return;
+  var m=document.createElement('nav');m.className='mob-menu';m.id='mob-menu';m.setAttribute('aria-label','Меню сайта');
+  Array.prototype.forEach.call(nav.children,function(el){
+    if(el.classList.contains('nav-dd')){
+      var top=el.querySelector(':scope>a'),d=document.createElement('details'),s=document.createElement('summary'),w=document.createElement('div');
+      s.textContent=top.textContent.replace('▾','').trim();d.appendChild(s);
+      var all=document.createElement('a');all.className='mob-all';all.href=top.getAttribute('href');all.textContent='Все разделы →';
+      el.querySelectorAll('.nav-dd-menu a').forEach(function(a){w.appendChild(a.cloneNode(true));});
+      w.appendChild(all);d.appendChild(w);m.appendChild(d);
+    }else if(el.tagName==='A'){m.appendChild(el.cloneNode(true));}
+  });
+  var c=document.createElement('div');c.className='mob-contacts';
+  var ph=document.querySelector('.nav-phone');if(ph){var p=ph.cloneNode(true);p.className='mob-phone';c.appendChild(p);}
+  var cb=document.querySelector('.nav-callback');if(cb){var k=cb.cloneNode(true);k.removeAttribute('onclick');k.addEventListener('click',function(){close();stOpen('cb-modal');});c.appendChild(k);}
+  m.appendChild(c);document.body.appendChild(m);
+  function close(){document.body.classList.remove('mob-open');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(){var o=document.body.classList.toggle('mob-open');b.setAttribute('aria-expanded',o?'true':'false');});
+  m.addEventListener('click',function(e){if(e.target.closest('a'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  window.addEventListener('resize',function(){if(window.innerWidth>900)close();});
 })();
 </script>
 </body>
