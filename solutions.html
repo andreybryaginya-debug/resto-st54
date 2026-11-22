@@ -159,11 +159,15 @@ a.srv-more{text-decoration:none}
 .pf-face .tag,.pf-face .srv-more{color:#fff}
 .pf-face h3{margin-bottom:0}
 .pf-face .srv-more{margin-top:12px;padding-top:0}
+.pf-acts{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;margin-top:auto}
+.pf-face .pf-acts{margin-top:12px}
+.pf-acts .srv-more{margin-top:0}
 .pf-detail{position:absolute;inset:0;background:#fff;opacity:0;visibility:hidden;transition:opacity .2s;color:var(--ink);text-shadow:none;z-index:2;overflow:auto}
 .pf-detail li{font-size:14px;padding:2px 0 2px 18px}
 .pf-detail .pf-lead{font-size:14.5px}
 .pf-photo:hover .pf-detail,.pf-photo:focus-within .pf-detail{opacity:1;visibility:visible}
 body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
+@media(min-width:901px) and (max-width:1160px){.pf-photo{min-height:470px}.pf-detail{padding:18px 18px 20px}.pf-detail h3{font-size:17px}.pf-detail .pf-lead{font-size:14px}.pf-detail li{font-size:13.5px}}
 .services-tint .pf.bg-products{background-image:url(img/sol-products-card.jpg)}
 .services-tint .pf.bg-tools{background-image:url(img/sol-tools-card.jpg)}
 .services-tint .pf.bg-egais{background-image:url(img/sol-egais-card.jpg)}
@@ -187,6 +191,16 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
 .mod-pics{display:flex;flex-direction:column;gap:16px;padding-top:4px}
 .mod-pics figure{margin:0}
 .mod-pics svg,.mod-pics img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+#mod-ai .mod-pics img{border:0}
+#mod-ai .mod-pics img.mod-pic-line{border:1px solid var(--line)}
+/* увеличение картинок окна ИИ-ассистента при наведении: поверх маленькой показывается отдельная большая копия в полном качестве (только на компьютере) */
+#mod-ai .mod-pics figure{position:relative}
+#mod-ai .mod-pics img.mod-zoom{display:none}
+@media(hover:hover) and (min-width:761px){
+#mod-ai .mod-pics img.mod-pic-line{cursor:zoom-in}
+#mod-ai .mod-pics img.mod-zoom{display:block;position:absolute;right:0;top:50%;width:760px;max-width:none;z-index:5;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 18px 44px rgba(25,28,30,.28);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-50%) scale(.96);transform-origin:right center;transition:opacity .2s,transform .2s,visibility .2s}
+#mod-ai .mod-pics figure:hover img.mod-zoom{opacity:1;visibility:visible;transform:translateY(-50%)}
+}
 .mod-pics figcaption{font-size:12.5px;line-height:1.4;color:var(--ink-soft);margin-top:6px}
 .mod-pics-src{font-size:11.5px;color:var(--ink-soft);opacity:.8}
 @media(max-width:760px){.mod-body{grid-template-columns:1fr}.mod-pics{flex-direction:row;flex-wrap:wrap;gap:12px}.mod-pics figure{flex:1 1 180px}}
@@ -289,7 +303,7 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
           <a href="profit.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3.500M10 6h11M3 12h11M17.500 12H21M3 18h2.500M9 18h12"/><rect class="ac" x="6.500" y="4.300" width="3.500" height="3.400" rx="1.200"/><rect x="14" y="10.300" width="3.500" height="3.400" rx="1.200"/><rect class="ac" x="5.500" y="16.300" width="3.500" height="3.400" rx="1.200"/></svg>Инструменты</a>
           <a href="solutions.html#egais"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h4M9.500 5v3c-2 1-3 2.500-3 4.500V20a1 1 0 0 0 1 1H13M12.500 5v3c1 .5 1.700 1.100 2.200 1.800M8.500 14H11M8.500 16.500h2"/><path class="ac" d="M9 3h4v2H9z"/><circle class="ac" cx="17" cy="16.500" r="4"/><path class="ac" d="M15.300 16.600l1.200 1.200 2.200-2.400"/></svg>Инвентаризация ЕГАИС</a>
           <a href="solutions.html#edo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h7l4 4v10a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1zM15 6v4h4M11 12h5M11 15h3"/><path class="ac" d="M5.500 17V4a1 1 0 0 1 1-1H13M14 18h4.500M17 16.500l1.500 1.500-1.500 1.500"/></svg>Документооборот (ЭДО)</a>
-          <a href="solutions.html#ai"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5H6a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h1v3l3.500-3H15a3 3 0 0 0 3-3v-2"/><path class="ac" d="M7.500 11v2M10 9.500v5M12.500 10.500v3M18.500 3l.8 2.200 2.200.8-2.200.8-.8 2.200-.8-2.200-2.200-.8 2.200-.8z"/></svg>ИИ-ассистент для iiko</a>
+          <a href="ai.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5H6a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h1v3l3.500-3H15a3 3 0 0 0 3-3v-2"/><path class="ac" d="M7.500 11v2M10 9.500v5M12.500 10.500v3M18.500 3l.8 2.200 2.200.8-2.200.8-.8 2.200-.8-2.200-2.200-.8 2.200-.8z"/></svg>ИИ-ассистент для iiko</a>
         </div>
       </div>
       <div class="nav-dd">
@@ -324,7 +338,7 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
       <a href="profit.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3.500M10 6h11M3 12h11M17.500 12H21M3 18h2.500M9 18h12"/><rect class="ac" x="6.500" y="4.300" width="3.500" height="3.400" rx="1.200"/><rect x="14" y="10.300" width="3.500" height="3.400" rx="1.200"/><rect class="ac" x="5.500" y="16.300" width="3.500" height="3.400" rx="1.200"/></svg>Инструменты</a>
       <a href="#egais"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h4M9.500 5v3c-2 1-3 2.500-3 4.500V20a1 1 0 0 0 1 1H13M12.500 5v3c1 .5 1.700 1.100 2.200 1.800M8.500 14H11M8.500 16.500h2"/><path class="ac" d="M9 3h4v2H9z"/><circle class="ac" cx="17" cy="16.500" r="4"/><path class="ac" d="M15.300 16.600l1.200 1.200 2.200-2.400"/></svg>ЕГАИС</a>
       <a href="#edo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h7l4 4v10a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1zM15 6v4h4M11 12h5M11 15h3"/><path class="ac" d="M5.500 17V4a1 1 0 0 1 1-1H13M14 18h4.500M17 16.500l1.500 1.500-1.500 1.500"/></svg>ЭДО</a>
-      <a href="#ai"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5H6a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h1v3l3.500-3H15a3 3 0 0 0 3-3v-2"/><path class="ac" d="M7.500 11v2M10 9.500v5M12.500 10.500v3M18.500 3l.8 2.200 2.200.8-2.200.8-.8 2.200-.8-2.200-2.200-.8 2.200-.8z"/></svg>ИИ-ассистент</a>
+      <a href="ai.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5H6a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h1v3l3.500-3H15a3 3 0 0 0 3-3v-2"/><path class="ac" d="M7.500 11v2M10 9.500v5M12.500 10.500v3M18.500 3l.8 2.200 2.200.8-2.200.8-.8 2.200-.8-2.200-2.200-.8 2.200-.8z"/></svg>ИИ-ассистент</a>
     </nav>
   </div>
 </section>
@@ -383,12 +397,12 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
         <div class="pf-body pf-detail">
           <span class="tag">Инвентаризация ЕГАИС</span>
           <h3>Алкоголь под учётом, без штрафов</h3>
-          <p class="pf-lead">Приёмка, списание и сверка остатков алкоголя с ЕГАИС в связке с iiko.</p>
+          <p class="pf-lead">Приёмка, списание и сверка алкоголя с ЕГАИС прямо из iiko.</p>
           <ul>
-            <li>Инвентаризация и сверка остатков с регистрами ЕГАИС за несколько минут, а не за смену.</li>
-            <li>Приёмка и списание по правилам, в том числе со смартфона по сканированию марок.</li>
-            <li>Алкодекларация за квартал формируется в пару кликов.</li>
-            <li>Настроим обмен iiko с ЕГАИС, обучим персонал, поможем разобрать расхождения.</li>
+            <li>Сверка остатков с ЕГАИС за минуты, а не за смену.</li>
+            <li>Приёмка и списание — в том числе со смартфона по маркам.</li>
+            <li>Алкодекларация за квартал в пару кликов.</li>
+            <li>Настроим обмен, обучим персонал, разберём расхождения.</li>
           </ul>
           <button class="srv-more" type="button" onclick="stOpen('req-modal')">Консультация →</button>
         </div>
@@ -404,12 +418,12 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
         <div class="pf-body pf-detail">
           <span class="tag">Документооборот (ЭДО)</span>
           <h3>Накладные, маркировка и Меркурий в одном окне</h3>
-          <p class="pf-lead">Документы от поставщиков и для госсистем попадают в iiko без ручного ввода.</p>
+          <p class="pf-lead">Документы поставщиков и госсистем — в iiko без ручного ввода.</p>
           <ul>
-            <li>Электронные накладные принимаются в веб- или мобильном интерфейсе и за секунды попадают в учёт.</li>
-            <li>Номенклатура поставщика сопоставляется с вашей автоматически, отклонения закупочных цен видны сразу.</li>
-            <li>Маркированные товары: приёмка и списание в «Честном знаке» одним действием.</li>
-            <li>Ветеринарные сертификаты «Меркурия» гасятся автоматически.</li>
+            <li>Электронные накладные за секунды попадают в учёт.</li>
+            <li>Товары поставщика сопоставляются с вашими сами, рост цен виден сразу.</li>
+            <li>«Честный знак»: приёмка и списание одним действием.</li>
+            <li>Сертификаты «Меркурия» гасятся автоматически.</li>
           </ul>
           <button class="srv-more" type="button" onclick="stOpen('req-modal')">Консультация →</button>
         </div>
@@ -419,20 +433,20 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
         <h2 class="pf-name">ИИ-ассистент для iiko</h2>
         <article class="pf pf-photo bg-ai">
           <div class="pf-face">
-            <h3>Цифры заведения — в Telegram, голосом</h3>
-          <button class="srv-more" type="button" onclick="stOpen('req-modal')">Консультация →</button>
+            <h3>Цифры заведения — в AI-чате, голосом</h3>
+          <div class="pf-acts"><button class="srv-more" type="button" onclick="stOpen('mod-ai')">Описание →</button><a class="srv-more" href="ai.html">Перейти →</a></div>
         </div>
         <div class="pf-body pf-detail">
           <span class="tag">ИИ-ассистент для iiko</span>
-          <h3>Цифры заведения — в Telegram, голосом</h3>
-          <p class="pf-lead">Спросите ассистента о выручке или фудкосте, и ответ придёт по свежим данным вашей iiko.</p>
+          <h3>Цифры заведения — в AI-чате, голосом</h3>
+          <p class="pf-lead">Спросите о выручке или фудкосте — ответ по свежим данным iiko.</p>
           <ul>
-            <li>Вопросы голосом или текстом: выручка, чеки, средний чек, себестоимость, ФОТ, прибыль, недостачи.</li>
-            <li>Отчёты по расписанию: меню по деньгам, проверка склада, план против факта.</li>
-            <li>Данные обновляются примерно раз в 10 минут, доступ только на чтение, в iiko ничего не меняется.</li>
-            <li>В чат можно добавить собственника, управляющего, шеф-повара и бухгалтера.</li>
+            <li>Голосом или текстом: выручка, средний чек, фудкост, прибыль.</li>
+            <li>Отчёты по расписанию: меню, склад, план и факт.</li>
+            <li>Данные обновляются раз в 10 минут, доступ только на чтение.</li>
+            <li>В чате — вся команда: от собственника до бухгалтера.</li>
           </ul>
-          <button class="srv-more" type="button" onclick="stOpen('req-modal')">Консультация →</button>
+          <div class="pf-acts"><button class="srv-more" type="button" onclick="stOpen('mod-ai')">Описание →</button><a class="srv-more" href="ai.html">Перейти →</a></div>
         </div>
       </article>
       </div>
@@ -482,6 +496,70 @@ body.modal-open .pf-detail{opacity:0 !important;visibility:hidden !important}
     </form>
   </div>
 </div>
+<div class="cb-overlay" id="mod-ai" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
+  <div class="cb-card cb-wide cb-split" role="dialog" aria-modal="true" aria-labelledby="mod-ai-title">
+    <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('mod-ai')">&#10005;</button>
+    <span class="tag">ИИ-ассистент для iiko</span>
+    <h3 id="mod-ai-title">Цифры заведения — в AI-чате, голосом</h3>
+    <p>Ассистент подключается к вашей iiko и отвечает на вопросы о деньгах заведения прямо в Telegram. Не нужно открывать iikoOffice и собирать отчёты вручную: спросили — получили цифры, а важные отчёты он присылает сам.</p>
+    <div class="mod-body">
+    <div class="mod-text">
+    <h4>Спросите, как у коллеги</h4>
+    <ul>
+      <li>Вопрос можно надиктовать голосом или написать текстом: «Сколько сделали сегодня?», «Что с фудкостом на этой неделе?»</li>
+      <li>Ответ приходит в тот же чат — с цифрами за нужный период: день, неделю, месяц.</li>
+      <li>Можно уточнять дальше: разбить по заведениям, сравнить с прошлым месяцем.</li>
+    </ul>
+    <h4>Что можно узнать</h4>
+    <ul>
+      <li>Продажи: выручка, количество чеков и гостей, средний чек, доля скидок.</li>
+      <li>Затраты: себестоимость, фудкост, фонд оплаты труда, списания.</li>
+      <li>Итог: валовая прибыль и рентабельность.</li>
+      <li>Склад: недостачи и излишки в рублях.</li>
+      <li>Если показатель выходит за обычные рамки — ассистент сам обратит на это внимание.</li>
+    </ul>
+    <h4>Отчёты по расписанию</h4>
+    <ul>
+      <li>Какие блюда приносят деньги, а какие стоит пересмотреть — разбор меню по категориям.</li>
+      <li>Проверка склада: расхождения в деньгах выделены отдельно.</li>
+      <li>План и факт: насколько выручка идёт по плану, по дням.</li>
+      <li>Время и периодичность задаёте словами в чате — например, «каждый понедельник в 9 утра».</li>
+    </ul>
+    <h4>Безопасно и без лишних хлопот</h4>
+    <ul>
+      <li>Доступ к iiko только на чтение — ассистент ничего не меняет в ваших данных.</li>
+      <li>Данные обновляются примерно каждые 10 минут.</li>
+      <li>Отдельное приложение не нужно — всё в Telegram. В чат можно добавить собственника, управляющего, шеф-повара и бухгалтера: каждый спрашивает о своём.</li>
+      <li>Подключение и настройку берём на себя: от вас — только доступ к iiko и чат для отчётов.</li>
+    </ul>
+    </div>
+    <div class="mod-pics">
+      <figure>
+        <img class="mod-pic-line" src="img/ai-start.jpg" alt="Окно ИИ-ассистента «Айка» в iiko с готовыми вопросами" loading="lazy">
+        <img class="mod-zoom" src="img/ai-start-big.jpg" alt="" aria-hidden="true" loading="lazy">
+        <figcaption>AI Чат в iiko: готовые запросы или свой вопрос</figcaption>
+      </figure>
+      <figure>
+        <img class="mod-pic-line" src="img/ai-waiters.jpg" alt="Ответ ассистента: выручка и средний чек по официантам с выводами" loading="lazy">
+        <img class="mod-zoom" src="img/ai-waiters-big.jpg" alt="" aria-hidden="true" loading="lazy">
+        <figcaption>Кто из официантов продаёт лучше — таблица и выводы</figcaption>
+      </figure>
+      <figure>
+        <img class="mod-pic-line" src="img/ai-days.jpg" alt="Ответ ассистента: продажи по дням за последние 30 дней" loading="lazy">
+        <img class="mod-zoom" src="img/ai-days-big.jpg" alt="" aria-hidden="true" loading="lazy">
+        <figcaption>Отчёт месяца приходит сам в нужный день</figcaption>
+      </figure>
+      <figure>
+        <img class="mod-pic-line" src="img/ai-hints.jpg" alt="Ассистент «Айка» и её подсказки: средний чек снизился, количество заказов отличается от нормы" loading="lazy">
+        <img class="mod-zoom" src="img/ai-hints-big.jpg" alt="" aria-hidden="true" loading="lazy">
+        <figcaption>Ассистент сам подсказывает, на что обратить внимание</figcaption>
+      </figure>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="stClose('mod-ai');stOpen('req-modal')">Консультация</button>
+  </div>
+</div>
+
 <div class="cb-overlay" id="req-modal" onclick="if(event.target===this){this.classList.remove('open');document.body.classList.remove('modal-open');}">
   <div class="cb-card" role="dialog" aria-modal="true" aria-labelledby="req-title">
     <button class="cb-close" type="button" aria-label="Закрыть" onclick="stClose('req-modal')">&#10005;</button>
